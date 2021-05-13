@@ -1,3 +1,6 @@
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f432756c-6e1e-458b-be3e-c2f93c90b5d3/deploy-status)](https://app.netlify.com/sites/brave-chandrasekhar-719c31/deploys)
+
 ### Hi there 👋
 
 <!--
