@@ -22,28 +22,37 @@ date_format: Jan 2006
 #   Leave `date_end` empty if it's your current employer.
 #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
 experience:
-  - title: CEO
-    company: GenCoin
+  - title: Post Doctoral Researcher
+    company: Ghent University
     company_url: ''
-    company_logo: org-gc
-    location: California
-    date_start: '2021-01-01'
+    company_logo: ugent
+    location: Ghent, Belgium
+    date_start: '2019-10-01'
     date_end: ''
     description: |2-
-        Responsibilities include:
+        Research activities include:
         
-        * Analysing
-        * Modelling
-        * Deploying
-        
-  - title: Professor of Semiconductor Physics
-    company: University X
+        * Chronic pain
+        * Statistical modelling of pain
+        * Prognosis and prevention of musculoskeletal pain
+
+  - title: Researcher
+    company: Sciensano
     company_url: ''
-    company_logo: org-x
-    location: California
-    date_start: '2016-01-01'
-    date_end: '2020-12-31'
-    description: Taught electronic engineering and researched semiconductor physics.
+    company_logo: sciensano
+    location: Ghent, Belgium
+    date_start: '2020-08-01'
+    date_end: ''
+    description: BeBod-study and health status report of the Belgian population.
+        
+  - title: PhD student
+    company: Ghent University
+    company_url: ''
+    company_logo: ugent
+    location: Ghent, Belgium
+    date_start: '2013-10-01'
+    date_end: '2019-10-01'
+    description: Conducting research on fundamental brain alterations in patients with chronic neck pain.
 
 design:
   columns: '2'

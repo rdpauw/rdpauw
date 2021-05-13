@@ -1,27 +1,29 @@
 ---
-bio: My research interests include distributed robotics, mobile computing and programmable
-  matter.
+bio: My research interests include chronic pain, musculoskeletal pain, health statistics and epidemiology.
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
-email: ""
+  - course: PhD in Health Sciences
+    institution: Ghent University
+    year: 2019
+  - course: MSc in Statistical Data Analysis
+    institution: Ghent University
+    year: 2019
+  - course: MSc in rehabilitation Sciences
+    institution: Ghent University
+    year: 2013
+email: "Robby.DePauw@Ugent.be"
 highlight_name: false
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Pain epidemiology
+- Chronic pain
+- Health statistics
+- Non comminicable diseases
 organizations:
-- name: Stanford University
-  url: https://www.stanford.edu/
-role: Professor of Artificial Intelligence
+- name: Sciensano
+  url: https://www.sciensano.be
+- name: Ghent University
+  url: https://www.ugent.be
+role: Researcher | Post-doctoral researcher
 social:
 - icon: envelope
   icon_pack: fas
@@ -31,22 +33,23 @@ social:
   icon: twitter
   icon_pack: fab
   label: Follow me on Twitter
-  link: https://twitter.com/GeorgeCushen
+  link: https://twitter.com/RobbyDePauw
 - icon: graduation-cap
   icon_pack: fas
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://scholar.google.com/citations?user=ZDPPxVkAAAAJ&hl=en&oi=ao
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/rdpauw
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/
+  link: https://www.linkedin.com/in/robby-de-pauw-8b0a0287/
+- icon: researchgate
+  icon_pack: fab
+  link: https://www.researchgate.net/profile/Robby-De-Pauw
 superuser: true
-title: Nelson Bighetti
+title: Robby De Pauw
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Robby De Pauw is a researcher at Sciensano and a post-doctoral researcher at Ghent University. His research interests include chronic pain, musculoskeletal pain, health statistics and epidemiology.
 
 {{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
