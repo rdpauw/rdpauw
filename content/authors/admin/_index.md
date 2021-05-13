@@ -27,7 +27,7 @@ role: Researcher | Post-doctoral researcher
 social:
 - icon: envelope
   icon_pack: fas
-  link: /#contact
+  link: mailto:Robby.DePauw@Ugent.be
 - display:
     header: true
   icon: twitter
