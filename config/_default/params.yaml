@@ -7,7 +7,7 @@
 
 theme: minimal
 day_night: true
-font: ''
+font: 'Classic'
 font_size: L
 
 # SEO
@@ -24,14 +24,15 @@ email: Robby.DePauw@Ugent.be
 phone: 0032 499 61 59 72
 
 contact_links:
-  - icon: twitter
-    icon_pack: fab
-    name: Robby De Pauw
-    link: 'https://twitter.com/RobbyDePauw'
   - icon: github
     icon_pack: fab
     name: github.com/rdpauw
     link: 'https://github.com/rdpauw'
+  - icon: twitter
+    icon_pack: fab
+    name: Robby De Pauw
+    link: 'https://twitter.com/RobbyDePauw'
+
 
 # Site header
 
@@ -69,7 +70,7 @@ edit_page:
     post: false
     book: false
 show_related:
-  book: true
+  book: false
   page: false
   post: true
   project: true
