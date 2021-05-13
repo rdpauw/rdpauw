@@ -52,4 +52,4 @@ title: Robby De Pauw
 
 Robby De Pauw is a researcher at Sciensano and a post-doctoral researcher at Ghent University. His research interests include chronic pain, musculoskeletal pain, health statistics and epidemiology.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/demo_resume.pdf" "newtab" >}}resumé{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
