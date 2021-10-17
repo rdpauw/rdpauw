@@ -1,17 +1,31 @@
 ---
 # Documentation: https://wowchemy.com/docs/managing-content/
 
-title: 'The motor brain in chronic neck pain: the association between sensorimotor
-  disturbances and brain alterations in a population of patients with chronic neck
-  pain'
+title: Performance of five rapid serological tests in mild-diseased subjects using
+  finger prick blood for exposure assessment to SARS-CoV-2
 subtitle: ''
 summary: ''
 authors:
+- David Triest
+- Laurence Geebelen
 - Robby De Pauw
+- Stéphane De Craeye
+- Alexandra Vodolazkaia
+- Mathieu Verbrugghe
+- Koen Magerman
+- Lara-Lauren Robben
+- Pieter Pannus
+- Kristof Neven
+- Dirk Ramaekers
+- Steven Van Gucht
+- Katelijne Dierick
+- Nele Van Loon
+- Maria E. Goossens
+- Isabelle Desombere
 tags: []
 categories: []
-date: '2019-01-01'
-lastmod: 2021-05-13T20:16:44+02:00
+date: '2021-09-01'
+lastmod: 2021-10-17T23:50:05+02:00
 featured: false
 draft: false
 
@@ -29,9 +43,11 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-10-17T21:50:07.085820Z'
+publishDate: '2021-10-17T21:50:03.921055Z'
 publication_types:
-- '7'
+- '2'
 abstract: ''
-publication: ''
+publication: '*Journal of Clinical Virology*'
+url_pdf: https://doi.org/10.1016%2Fj.jcv.2021.104897
+doi: 10.1016/j.jcv.2021.104897
 ---

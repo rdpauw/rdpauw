@@ -52,7 +52,7 @@ image:
 #   E.g. `projects = ["internal-project"]` references `content/project/deep-learning/index.md`.
 #   Otherwise, set `projects = []`.
 projects: []
-publishDate: '2021-05-13T18:17:29.826891Z'
+publishDate: '2021-10-17T21:50:08.623951Z'
 publication_types:
 - '2'
 abstract: 'Background: Patients with chronic whiplash-associated disorders (CWAD)
