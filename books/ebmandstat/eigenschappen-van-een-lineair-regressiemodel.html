@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Eigenschappen van een lineair regressiemodel | EBM &amp; Statistiek III</title>
+  <meta name="description" content="Eigenschappen van een lineair regressiemodel | EBM &amp; Statistiek III" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Eigenschappen van een lineair regressiemodel | EBM &amp; Statistiek III" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Eigenschappen van een lineair regressiemodel | EBM &amp; Statistiek III" />
+  
+  
+  
+
+<meta name="author" content="Robby.DePauw@Ugent.be" />
+
+
+<meta name="date" content="2021-11-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="studie-naar-tevredenheid-1.html"/>
+<link rel="next" href="voorwaarden-van-een-lineair-regressiemodel.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/proj4js-2.3.15/proj4.js"></script>
+<link href="libs/highcharts-8.1.2/css/motion.css" rel="stylesheet" />
+<script src="libs/highcharts-8.1.2/highcharts.js"></script>
+<script src="libs/highcharts-8.1.2/highcharts-3d.js"></script>
+<script src="libs/highcharts-8.1.2/highcharts-more.js"></script>
+<script src="libs/highcharts-8.1.2/modules/stock.js"></script>
+<script src="libs/highcharts-8.1.2/modules/map.js"></script>
+<script src="libs/highcharts-8.1.2/modules/annotations.js"></script>
+<script src="libs/highcharts-8.1.2/modules/data.js"></script>
+<script src="libs/highcharts-8.1.2/modules/drilldown.js"></script>
+<script src="libs/highcharts-8.1.2/modules/item-series.js"></script>
+<script src="libs/highcharts-8.1.2/modules/offline-exporting.js"></script>
+<script src="libs/highcharts-8.1.2/modules/overlapping-datalabels.js"></script>
+<script src="libs/highcharts-8.1.2/modules/exporting.js"></script>
+<script src="libs/highcharts-8.1.2/modules/export-data.js"></script>
+<script src="libs/highcharts-8.1.2/modules/funnel.js"></script>
+<script src="libs/highcharts-8.1.2/modules/heatmap.js"></script>
+<script src="libs/highcharts-8.1.2/modules/treemap.js"></script>
+<script src="libs/highcharts-8.1.2/modules/sankey.js"></script>
+<script src="libs/highcharts-8.1.2/modules/dependency-wheel.js"></script>
+<script src="libs/highcharts-8.1.2/modules/organization.js"></script>
+<script src="libs/highcharts-8.1.2/modules/solid-gauge.js"></script>
+<script src="libs/highcharts-8.1.2/modules/streamgraph.js"></script>
+<script src="libs/highcharts-8.1.2/modules/sunburst.js"></script>
+<script src="libs/highcharts-8.1.2/modules/vector.js"></script>
+<script src="libs/highcharts-8.1.2/modules/wordcloud.js"></script>
+<script src="libs/highcharts-8.1.2/modules/xrange.js"></script>
+<script src="libs/highcharts-8.1.2/modules/tilemap.js"></script>
+<script src="libs/highcharts-8.1.2/modules/venn.js"></script>
+<script src="libs/highcharts-8.1.2/modules/gantt.js"></script>
+<script src="libs/highcharts-8.1.2/modules/timeline.js"></script>
+<script src="libs/highcharts-8.1.2/modules/parallel-coordinates.js"></script>
+<script src="libs/highcharts-8.1.2/modules/bullet.js"></script>
+<script src="libs/highcharts-8.1.2/modules/coloraxis.js"></script>
+<script src="libs/highcharts-8.1.2/modules/dumbbell.js"></script>
+<script src="libs/highcharts-8.1.2/modules/lollipop.js"></script>
+<script src="libs/highcharts-8.1.2/modules/series-label.js"></script>
+<script src="libs/highcharts-8.1.2/plugins/motion.js"></script>
+<script src="libs/highcharts-8.1.2/custom/reset.js"></script>
+<script src="libs/highcharts-8.1.2/modules/boost.js"></script>
+<script src="libs/highchart-binding-0.8.2/highchart.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">EBM & Statistiek III</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Over deze cursus</a><ul>
+<li class="chapter" data-level="" data-path="de-lesgever.html"><a href="de-lesgever.html"><i class="fa fa-check"></i>De lesgever</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introductie</a><ul>
+<li class="chapter" data-level="" data-path="hypothesetoetsen.html"><a href="hypothesetoetsen.html"><i class="fa fa-check"></i>Hypothesetoetsen</a></li>
+<li class="chapter" data-level="" data-path="fouten-bij-hypothesetoetsen.html"><a href="fouten-bij-hypothesetoetsen.html"><i class="fa fa-check"></i>Fouten bij hypothesetoetsen</a></li>
+<li class="chapter" data-level="" data-path="keuze-statistische-toets.html"><a href="keuze-statistische-toets.html"><i class="fa fa-check"></i>Keuze statistische toets</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="corr.html"><a href="corr.html"><i class="fa fa-check"></i><b>2</b> Correlaties</a><ul>
+<li class="chapter" data-level="" data-path="inleiding.html"><a href="inleiding.html"><i class="fa fa-check"></i>Inleiding</a></li>
+<li class="chapter" data-level="" data-path="soorten-correlaties.html"><a href="soorten-correlaties.html"><i class="fa fa-check"></i>Soorten correlaties</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="soorten-correlaties.html"><a href="soorten-correlaties.html#peason-correlatie-rho"><i class="fa fa-check"></i><b>2.0.1</b> Peason correlatie (<span class="math inline">\(\rho\)</span>)</a></li>
+<li class="chapter" data-level="2.0.2" data-path="soorten-correlaties.html"><a href="soorten-correlaties.html#spearman-correlatie-r_s"><i class="fa fa-check"></i><b>2.0.2</b> Spearman correlatie (<span class="math inline">\(r_s\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="studie-naar-tevredenheid.html"><a href="studie-naar-tevredenheid.html"><i class="fa fa-check"></i>Studie naar tevredenheid</a></li>
+<li class="chapter" data-level="" data-path="spss.html"><a href="spss.html"><i class="fa fa-check"></i>SPSS</a></li>
+<li class="chapter" data-level="" data-path="oefeningen.html"><a href="oefeningen.html"><i class="fa fa-check"></i>Oefeningen</a></li>
+<li class="chapter" data-level="" data-path="conclusies.html"><a href="conclusies.html"><i class="fa fa-check"></i>Conclusies</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="regr.html"><a href="regr.html"><i class="fa fa-check"></i><b>3</b> Lineare regressie</a><ul>
+<li class="chapter" data-level="" data-path="inleiding-1.html"><a href="inleiding-1.html"><i class="fa fa-check"></i>Inleiding</a></li>
+<li class="chapter" data-level="" data-path="studie-naar-tevredenheid-1.html"><a href="studie-naar-tevredenheid-1.html"><i class="fa fa-check"></i>Studie naar tevredenheid</a></li>
+<li class="chapter" data-level="" data-path="eigenschappen-van-een-lineair-regressiemodel.html"><a href="eigenschappen-van-een-lineair-regressiemodel.html"><i class="fa fa-check"></i>Eigenschappen van een lineair regressiemodel</a><ul>
+<li class="chapter" data-level="" data-path="eigenschappen-van-een-lineair-regressiemodel.html"><a href="eigenschappen-van-een-lineair-regressiemodel.html#schatten-van-lineaire-regressie"><i class="fa fa-check"></i>Schatten van lineaire regressie</a></li>
+<li class="chapter" data-level="" data-path="eigenschappen-van-een-lineair-regressiemodel.html"><a href="eigenschappen-van-een-lineair-regressiemodel.html#performantie-van-het-regressiemodel"><i class="fa fa-check"></i>Performantie van het regressiemodel</a></li>
+<li class="chapter" data-level="" data-path="eigenschappen-van-een-lineair-regressiemodel.html"><a href="eigenschappen-van-een-lineair-regressiemodel.html#hypothesen"><i class="fa fa-check"></i>Hypothesen</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="voorwaarden-van-een-lineair-regressiemodel.html"><a href="voorwaarden-van-een-lineair-regressiemodel.html"><i class="fa fa-check"></i>Voorwaarden van een lineair regressiemodel</a></li>
+<li class="chapter" data-level="" data-path="selectie-van-een-regressiemodel.html"><a href="selectie-van-een-regressiemodel.html"><i class="fa fa-check"></i>Selectie van een regressiemodel</a></li>
+<li class="chapter" data-level="" data-path="dummy-coding.html"><a href="dummy-coding.html"><i class="fa fa-check"></i>Dummy coding</a></li>
+<li class="chapter" data-level="" data-path="multicollineariteit.html"><a href="multicollineariteit.html"><i class="fa fa-check"></i>Multicollineariteit</a></li>
+<li class="chapter" data-level="" data-path="spss-en-oefeningen.html"><a href="spss-en-oefeningen.html"><i class="fa fa-check"></i>SPSS en oefeningen</a></li>
+<li class="chapter" data-level="" data-path="conclusies-1.html"><a href="conclusies-1.html"><i class="fa fa-check"></i>Conclusies</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://www.ugent.be" target="blank"><img src="img/ugent.png" width=100></a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EBM &amp; Statistiek III</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="eigenschappen-van-een-lineair-regressiemodel" class="section level2 unnumbered">
+<h2>Eigenschappen van een lineair regressiemodel</h2>
+<div id="schatten-van-lineaire-regressie" class="section level3 unnumbered">
+<h3>Schatten van lineaire regressie</h3>
+<p>Eén van de belangrijste evaluatiecriteria bij een lineair regressiemodel is de meerwaarde van <span class="math inline">\(X\)</span> in het verklaren van <span class="math inline">\(Y\)</span>. Indien we geen informatie zouden hebben over leeftijd en geslacht, kunnen we <span class="math inline">\(Y\)</span> het best beschrijven aan de hand van het gemiddelde <span class="math inline">\(\bar{Y}\)</span>.</p>
+<div id="htmlwidget-2ebfcb8543508f6060e4" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2ebfcb8543508f6060e4">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":"Y"}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0,"animation":false},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"group":"group","data":[{"x":1,"y":8},{"x":1,"y":6},{"x":1,"y":7},{"x":1,"y":5},{"x":1,"y":3},{"x":1,"y":4},{"x":1,"y":4},{"x":1,"y":2},{"x":1,"y":0}],"type":"scatter"},{"group":"group","data":[{"x":0.5,"y":4.33333333333333},{"x":0.625,"y":4.33333333333333},{"x":0.75,"y":4.33333333333333},{"x":0.875,"y":4.33333333333333},{"x":1,"y":4.33333333333333},{"x":1.125,"y":4.33333333333333},{"x":1.25,"y":4.33333333333333},{"x":1.375,"y":4.33333333333333},{"x":1.5,"y":4.33333333333333}],"type":"line"}],"legend":{"enabled":false},"xAxis":{"title":{"text":"X"}}},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p>Om de waarde van de <span class="math inline">\(X\)</span> variabele in te schatten in het verklaren van <span class="math inline">\(Y\)</span>, kijken we naar de afstand tussen de geschatte regressielijn en de observaties (punten op de grafiek). Wanneer de punten dichter tegen de lijn liggen in vergelijking met een schatting op basis van het algemene gemiddelde <span class="math inline">\(\bar{Y}\)</span>, dan lijkt het dat <span class="math inline">\(X\)</span> een deel van <span class="math inline">\(Y\)</span> lijkt te verklaren. Wanneer we <span class="math inline">\(Y\)</span> willen schatten op basis van de regressielijn, dan duiden we deze schatting aan met <span class="math inline">\(\hat{Y}\)</span>. Zo zal voor <span class="math inline">\(X = 30\)</span>, <span class="math inline">\(\hat{Y} = 13.6 + (-0.2)30 = 7.6\)</span>.</p>
+<p>Het verklaarde deel wordt uitgedrukt als verklaarde variantie. Het becijferen van deze verklaarde variantie gebeurt aan de hand van ANOVA tabellen. Zoals weergegeven in figuur <a href="eigenschappen-van-een-lineair-regressiemodel.html#fig:lmsst">3.1</a> varieert <span class="math inline">\(Y\)</span> over verschillende waarden. De blauwe bollen geven de observaties weer, terwijl de blauwe horizontale lijn het gemiddelde van <span class="math inline">\(Y\)</span> weergeeft. De afstand van een observatie (blauwe bol) tot de horizontale lijn, maakt onderdeel uit van de totale variantie. Deze totale variantie wordt ook wel de kwadratensom (Sum of Squares) genoemd. Wiskundig wordt de totale spreiding gedefinieerd als de Total Sum of Squares (SST) ofwel <span class="math inline">\(\sum ({Y}_i - \bar{Y})^2\)</span>. Deze formule geeft aan dat het de som van alle afstanden betreft tussen de blauwe bollen en de blauwe horizontale lijn. Daarnaast hebben we ook de regressielijn of best passende rechte. De afstand van de blauwe bollen tot deze lijn, noemen we de resterende fout van het model of residu (SSE) wat wiskundig <span class="math inline">\(\sum ({Y}_i - \hat{Y})^2\)</span> word ofwel het verschiul tussen de blauwe bollen en de regressielijn. Tot slot hebben we de verklaarde variantie van het model, welke uitdruk in welke mate het model meer verklaard van de variantie van <span class="math inline">\(Y\)</span> t.o.v. <span class="math inline">\(\bar{Y}\)</span>. Dit wordt weergegeven door <span class="math inline">\(\sum (\hat{Y}_i - \bar{Y})^2\)</span>.</p>
+<div class="figure"><span style="display:block;" id="fig:lmsst"></span>
+<img src="img/lm_sst.png" alt="Grafische weergave van variantiebronnen" width="100%" />
+<p class="caption">
+Figure 3.1: Grafische weergave van variantiebronnen
+</p>
+</div>
+<p>Uitgewerkt voor de oranje bol (<span class="math inline">\(X = 34, Y = 7\)</span>) in figuur <a href="eigenschappen-van-een-lineair-regressiemodel.html#fig:lmsst">3.1</a>:</p>
+<ul>
+<li>SST: de afstand tussen de oranje bol <span class="math inline">\(Y_i\)</span> en de blauwe horizontale lijn <span class="math inline">\(\bar{Y}\)</span> ofwel <span class="math inline">\({Y}_i - \bar{Y} = 7 - 4,3 = 2,7\)</span>.</li>
+<li>SSE: de afstand tussen de oranje bol <span class="math inline">\(Y_i\)</span> en de regressielijn <span class="math inline">\(\hat{Y}\)</span> voor <span class="math inline">\(X = 34\)</span> ofwel <span class="math inline">\({Y}_i - \hat{Y} = 7 - (13.6 + (-0.2) \times 34) = 7 - 6 = 1\)</span>. (<strong>opmerking</strong>: hier werden alle cijfers na de komma meegenomen, het volledige model is: <span class="math inline">\(\beta_0 = 13.6177\)</span> en <span class="math inline">\(\beta_1 = -0.02246\)</span>).</li>
+<li>SSR: de afstand tussen <span class="math inline">\(\hat{Y}\)</span> en <span class="math inline">\(\bar{Y}\)</span>.</li>
+</ul>
+<p>Wanneer we deze oefening voor alles observaties zouden herhalen en kwadrateren en optellen, komen we tot de uiteindelijke kwadratensom.</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-10">Table 3.3: </span>Opbouw kwadratensom (1)
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+SST
+</th>
+<th style="text-align:right;">
+SSE
+</th>
+<th style="text-align:right;">
+SSR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3.6666667
+</td>
+<td style="text-align:right;">
+-0.0021598
+</td>
+<td style="text-align:right;">
+3.6688265
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.6666667
+</td>
+<td style="text-align:right;">
+0.0194384
+</td>
+<td style="text-align:right;">
+1.6472282
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.6666667
+</td>
+<td style="text-align:right;">
+1.0194384
+</td>
+<td style="text-align:right;">
+1.6472282
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.6666667
+</td>
+<td style="text-align:right;">
+-0.5313175
+</td>
+<td style="text-align:right;">
+1.1979842
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-1.3333333
+</td>
+<td style="text-align:right;">
+-1.1835853
+</td>
+<td style="text-align:right;">
+-0.1497480
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-0.3333333
+</td>
+<td style="text-align:right;">
+0.2656587
+</td>
+<td style="text-align:right;">
+-0.5989921
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-0.3333333
+</td>
+<td style="text-align:right;">
+0.4902808
+</td>
+<td style="text-align:right;">
+-0.8236141
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-2.3333333
+</td>
+<td style="text-align:right;">
+-0.3866091
+</td>
+<td style="text-align:right;">
+-1.9467243
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+-4.3333333
+</td>
+<td style="text-align:right;">
+0.3088553
+</td>
+<td style="text-align:right;">
+-4.6421886
+</td>
+</tr>
+</tbody>
+</table>
+<p>Wanneer we al deze waarden kwadrateren komen we tot volgende tabel:</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-11">Table 3.4: </span>Opbouw kwadratensom
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+SST
+</th>
+<th style="text-align:right;">
+SSE
+</th>
+<th style="text-align:right;">
+SSR
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+13.4444444
+</td>
+<td style="text-align:right;">
+0.0000047
+</td>
+<td style="text-align:right;">
+13.4602878
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.7777778
+</td>
+<td style="text-align:right;">
+0.0003779
+</td>
+<td style="text-align:right;">
+2.7133608
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7.1111111
+</td>
+<td style="text-align:right;">
+1.0392547
+</td>
+<td style="text-align:right;">
+2.7133608
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.4444444
+</td>
+<td style="text-align:right;">
+0.2822983
+</td>
+<td style="text-align:right;">
+1.4351661
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1.7777778
+</td>
+<td style="text-align:right;">
+1.4008742
+</td>
+<td style="text-align:right;">
+0.0224245
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.1111111
+</td>
+<td style="text-align:right;">
+0.0705746
+</td>
+<td style="text-align:right;">
+0.3587915
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+0.1111111
+</td>
+<td style="text-align:right;">
+0.2403752
+</td>
+<td style="text-align:right;">
+0.6783402
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4444444
+</td>
+<td style="text-align:right;">
+0.1494666
+</td>
+<td style="text-align:right;">
+3.7897354
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+18.7777778
+</td>
+<td style="text-align:right;">
+0.0953916
+</td>
+<td style="text-align:right;">
+21.5499152
+</td>
+</tr>
+</tbody>
+</table>
+<p>Tot slot tellen we alles op:</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-12">Table 3.5: </span>Opbouw kwadratensom (3)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+SST
+</td>
+<td style="text-align:right;">
+50.000000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SSE
+</td>
+<td style="text-align:right;">
+3.278618
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SSR
+</td>
+<td style="text-align:right;">
+46.721382
+</td>
+</tr>
+</tbody>
+</table>
+<p>Zoals jullie kunnen opmerken uit de laatste tabel, geldt voor de variantiebronnen dat <span class="math inline">\(SST = SSE + SSR\)</span>.</p>
+<div style="page-break-after: always;"></div>
+</div>
+<div id="performantie-van-het-regressiemodel" class="section level3 unnumbered">
+<h3>Performantie van het regressiemodel</h3>
+<p>De performantie of verklarende kracht van het regressiemodel wordt uitgedrukt aan de hand van de <em>determinatiecoëfficiënt</em> (<span class="math inline">\(R^2\)</span>). Deze geeft weer hoeveel van de variantie in <span class="math inline">\(Y\)</span> verklaard kan worden aan de hand van één of meerdere onafhankelijke <span class="math inline">\(X\)</span> variabelen. Meer bepaald is <span class="math inline">\(R^2 = \frac{SSR}{SST} = 1 - \frac{SSE}{SST}\)</span>. In het voorbeeld hierboven gegeven is <span class="math inline">\(R^2 = 0.93\)</span> ofwel <span class="math inline">\(93%\)</span>. De determinatiecoëfficiënt varieerd tussen 0 en 1 (<span class="math inline">\(R^2 \in [0,1]\)</span>) en hoe dichter bij <span class="math inline">\(1\)</span>, hoe meer van de variantie verklaard kan worden.</p>
+<div class="warning">
+<p>Deze berekening wijkt af van de slides door afronding. In de slides werd er geen afronding meegenomen, maar in dit boek werd dit wel meegenomen.</p>
+</div>
+<p>Een volledig overzicht van alle variantiebronnen is weergegeven in onderstaande tabel:</p>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-13">Table 3.6: </span>Overzicht van alle variantiebronnen
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Bron
+</th>
+<th style="text-align:left;">
+Kwadratensom (SS)
+</th>
+<th style="text-align:left;">
+Vrijheidsgraden (df)
+</th>
+<th style="text-align:left;">
+Kwadratengemiddelde (MS)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Regressie
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\sum ( \hat{Y}_i - \bar{Y})^2\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(m\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{\sum ( \hat{Y}_i - \bar{Y})^2}{m}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Residu/Fout
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\sum ( Y_i - \hat{Y})^2\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n-m-1\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{\sum ( Y_i - \hat{Y})^2}{n-m-1}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Totaal
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\sum ( Y_i - \bar{Y})^2\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n-1\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{\sum ( Y_i - \bar{Y})^2}{n-1}\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+<p>De uiteindelijke statistische grootheid op basis waarvan de uiteindelijke <span class="math inline">\(p\)</span>-waarde berekend wordt, is gebaseerd op een afgeleide van de kwadratensom, namelijk het kwadratengemiddelde. Hiervoor wordt elke kwadratensom gedeeld door de bijhorende vrijheidsgraden. Deze vrijheidsgraden zijn <span class="math inline">\(n-1\)</span> voor de SST (zoals in de formule van variantie uit eerste/tweede Bachelor), <span class="math inline">\(m\)</span> voor de SSR (waarbij <span class="math inline">\(m\)</span> het aantal onafhelijke variabelen weergeeft) en <span class="math inline">\(n-m-1\)</span> voor de SSE. De F-statistiek wordt uiteindelijk berekend als <span class="math inline">\(F = MS_{regressie}/MS_{residu}\)</span>. Hoe groter de waarde van <span class="math inline">\(F\)</span>, hoe meer de regressie in staat is om variantie te verklaren en hoe sneller een statisch signifcant resultaat gevonden kan worden. Voor het <code>tevreden</code> voorbeeld is <span class="math inline">\(n-1 = 8\)</span>, <span class="math inline">\(m = 1\)</span> en <span class="math inline">\(n-m-1 = 8-1-1 = 6\)</span>. Hieruit kunnen we <span class="math inline">\(F\)</span> berekenen als <span class="math inline">\(F = \frac{46.7}{1}/\frac{3.3}{6} = 84.9\)</span></p>
+<div class="figure"><span style="display:block;" id="fig:Ffig"></span>
+<div id="htmlwidget-b766b6b99376aaf799e6" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b766b6b99376aaf799e6">{"x":{"hc_opts":{"chart":{"reflow":true},"title":{"text":null},"yAxis":{"title":{"text":null}},"credits":{"enabled":false},"exporting":{"enabled":false},"boost":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"series":[{"data":[{"x":-0.453177728986484,"y":0.00988486433258685},{"x":-0.324172140723033,"y":0.0713117095227734},{"x":-0.195166552459582,"y":0.272103246310167},{"x":-0.0661609641961306,"y":0.596732667194474},{"x":0.0628446240673206,"y":0.830311585802441},{"x":0.191850212330772,"y":0.819153886269653},{"x":0.320855800594223,"y":0.660837182249262},{"x":0.449861388857674,"y":0.510804575948558},{"x":0.578866977121125,"y":0.41428160643997},{"x":0.707872565384577,"y":0.350759161258555},{"x":0.836878153648028,"y":0.299988085018887},{"x":0.965883741911479,"y":0.256470772863843},{"x":1.09488933017493,"y":0.220563546308011},{"x":1.22389491843838,"y":0.190683090553771},{"x":1.35290050670183,"y":0.164129496145225},{"x":1.48190609496528,"y":0.140674482792658},{"x":1.61091168322874,"y":0.12261605089564},{"x":1.73991727149219,"y":0.110225638325723},{"x":1.86892285975564,"y":0.100829984261735},{"x":1.99792844801909,"y":0.0924837876451814},{"x":2.12693403628254,"y":0.0844560527776296},{"x":2.25593962454599,"y":0.076839538094243},{"x":2.38494521280944,"y":0.0718375546144895},{"x":2.51395080107289,"y":0.0700454835767957},{"x":2.64295638933634,"y":0.0686058246437163},{"x":2.7719619775998,"y":0.0652226278045913},{"x":2.90096756586325,"y":0.0606505754906341},{"x":3.0299731541267,"y":0.0558044576971502},{"x":3.15897874239015,"y":0.050347427897158},{"x":3.2879843306536,"y":0.0446215047435719},{"x":3.41698991891705,"y":0.0403618975029701},{"x":3.5459955071805,"y":0.0386958778347412},{"x":3.67500109544395,"y":0.0386239021085663},{"x":3.80400668370741,"y":0.0380789878535075},{"x":3.93301227197086,"y":0.0360114384839658},{"x":4.06201786023431,"y":0.0328516244285224},{"x":4.19102344849776,"y":0.029753908147181},{"x":4.32002903676121,"y":0.0272167648332355},{"x":4.44903462502466,"y":0.0252390020424913},{"x":4.57804021328811,"y":0.0238338687259112},{"x":4.70704580155156,"y":0.0225770783450247},{"x":4.83605138981502,"y":0.0213164671423683},{"x":4.96505697807847,"y":0.0201332412410121},{"x":5.09406256634192,"y":0.0186071267281242},{"x":5.22306815460537,"y":0.0167061642552358},{"x":5.35207374286882,"y":0.0153090539534062},{"x":5.48107933113227,"y":0.0151899368102009},{"x":5.61008491939572,"y":0.0153954514298045},{"x":5.73909050765917,"y":0.0148134123456489},{"x":5.86809609592263,"y":0.0137328213884042},{"x":5.99710168418608,"y":0.0128200432687661},{"x":6.12610727244953,"y":0.0121918099399783},{"x":6.25511286071298,"y":0.0115496125921087},{"x":6.38411844897643,"y":0.0109487908385457},{"x":6.51312403723988,"y":0.0107618025594913},{"x":6.64212962550333,"y":0.0107957691573325},{"x":6.77113521376678,"y":0.010312036449454},{"x":6.90014080203023,"y":0.00913564849977273},{"x":7.02914639029369,"y":0.00781805879249014},{"x":7.15815197855714,"y":0.00704390898621335},{"x":7.28715756682059,"y":0.00703948294173705},{"x":7.41616315508404,"y":0.00735518343780281},{"x":7.54516874334749,"y":0.00744725792827439},{"x":7.67417433161094,"y":0.00726228964852745},{"x":7.80317991987439,"y":0.00709740570790851},{"x":7.93218550813785,"y":0.00717963273253858},{"x":8.0611910964013,"y":0.00738745238197969},{"x":8.19019668466475,"y":0.00738156808939235},{"x":8.3192022729282,"y":0.00709940621056295},{"x":8.44820786119165,"y":0.00683506718315994},{"x":8.5772134494551,"y":0.00670461869166979},{"x":8.70621903771855,"y":0.00649629918795899},{"x":8.835224625982,"y":0.00611527370057001},{"x":8.96423021424545,"y":0.00547460971766949},{"x":9.09323580250891,"y":0.00469487171194667},{"x":9.22224139077236,"y":0.00437651198085229},{"x":9.35124697903581,"y":0.00459338349502486},{"x":9.48025256729926,"y":0.00461812028343541},{"x":9.60925815556271,"y":0.00384265966847523},{"x":9.73826374382616,"y":0.00270164701103011},{"x":9.86726933208961,"y":0.00219502753645625},{"x":9.99627492035306,"y":0.00243063547086926},{"x":10.1252805086165,"y":0.00257235422588236},{"x":10.25428609688,"y":0.00241254857509118},{"x":10.3832916851434,"y":0.00250609002765298},{"x":10.5122972734069,"y":0.00275498117878475},{"x":10.6413028616703,"y":0.00291592163677619},{"x":10.7703084499338,"y":0.00310084478642175},{"x":10.8993140381972,"y":0.00308156867352608},{"x":11.0283196264607,"y":0.00277262699186682},{"x":11.1573252147241,"y":0.00255990534579854},{"x":11.2863308029876,"y":0.00286026260024128},{"x":11.415336391251,"y":0.00363657120716341},{"x":11.5443419795145,"y":0.00458206738690551},{"x":11.6733475677779,"y":0.00501018750546703},{"x":11.8023531560414,"y":0.00426606793794491},{"x":11.9313587443048,"y":0.00314658969444056},{"x":12.0603643325683,"y":0.0029350743283754},{"x":12.1893699208317,"y":0.0033935797103285},{"x":12.3183755090952,"y":0.00331770160031175},{"x":12.4473810973586,"y":0.00252155545125058},{"x":12.5763866856221,"y":0.00179800387516555},{"x":12.7053922738855,"y":0.00159858899236662},{"x":12.834397862149,"y":0.00165738859241695},{"x":12.9634034504124,"y":0.00165600252659422},{"x":13.0924090386759,"y":0.0016132362811032},{"x":13.2214146269393,"y":0.00163072648703553},{"x":13.3504202152028,"y":0.0017429035493981},{"x":13.4794258034662,"y":0.00199591978610533},{"x":13.6084313917297,"y":0.00224178305395911},{"x":13.7374369799931,"y":0.00207257815882842},{"x":13.8664425682566,"y":0.00148197831438108},{"x":13.9954481565201,"y":0.000999968788377363},{"x":14.1244537447835,"y":0.000998826685779922},{"x":14.253459333047,"y":0.00133714726543741},{"x":14.3824649213104,"y":0.00161312510098603},{"x":14.5114705095739,"y":0.00172360850868573},{"x":14.6404760978373,"y":0.00190080582451333},{"x":14.7694816861008,"y":0.00205196075063677},{"x":14.8984872743642,"y":0.00181991978795989},{"x":15.0274928626277,"y":0.00128133047837418},{"x":15.1564984508911,"y":0.000790994501198404},{"x":15.2855040391546,"y":0.000467741531043808},{"x":15.414509627418,"y":0.000302066042610843},{"x":15.5435152156815,"y":0.000292427132986706},{"x":15.6725208039449,"y":0.00036479575323436},{"x":15.8015263922084,"y":0.000515199100343123},{"x":15.9305319804718,"y":0.000800292290028236},{"x":16.0595375687353,"y":0.00101939289291378},{"x":16.1885431569987,"y":0.000888564071506631},{"x":16.3175487452622,"y":0.000508938343222613},{"x":16.4465543335256,"y":0.000247838916025626},{"x":16.5755599217891,"y":0.000270746211781063},{"x":16.7045655100525,"y":0.000428407832968838},{"x":16.833571098316,"y":0.000448036213313063},{"x":16.9625766865794,"y":0.000280160857540001},{"x":17.0915822748429,"y":0.00019050748888909},{"x":17.2205878631063,"y":0.000349576747623379},{"x":17.3495934513698,"y":0.000616340261508688},{"x":17.4785990396332,"y":0.000722322790451799},{"x":17.6076046278967,"y":0.00061374746812518},{"x":17.7366102161601,"y":0.000419212107973036},{"x":17.8656158044236,"y":0.000238683241106135},{"x":17.994621392687,"y":0.000194002035923956},{"x":18.1236269809505,"y":0.000301796342519624},{"x":18.2526325692139,"y":0.000478221622098546},{"x":18.3816381574774,"y":0.000706807223357326},{"x":18.5106437457408,"y":0.000913622837443598},{"x":18.6396493340043,"y":0.000974500887134825},{"x":18.7686549222677,"y":0.000892446509170426},{"x":18.8976605105312,"y":0.000737050996588867},{"x":19.0266660987946,"y":0.000533281785497547},{"x":19.1556716870581,"y":0.000315474504464461},{"x":19.2846772753215,"y":0.000160338383771664},{"x":19.413682863585,"y":0.000134378749242587},{"x":19.5426884518485,"y":0.000202226358457786},{"x":19.6716940401119,"y":0.000232762140498435},{"x":19.8006996283754,"y":0.000186259929411174},{"x":19.9297052166388,"y":0.000173396533677756},{"x":20.0587108049023,"y":0.000222265025328952},{"x":20.1877163931657,"y":0.000225764877639649},{"x":20.3167219814292,"y":0.0001769506436434},{"x":20.4457275696926,"y":0.000186143551152686},{"x":20.5747331579561,"y":0.000240583408284776},{"x":20.7037387462195,"y":0.000213828545546061},{"x":20.832744334483,"y":0.0001145604270378},{"x":20.9617499227464,"y":5.23685096128438e-05},{"x":21.0907555110099,"y":7.94643606350989e-05},{"x":21.2197610992733,"y":0.00016754890356953},{"x":21.3487666875368,"y":0.000223746419768021},{"x":21.4777722758002,"y":0.000179566794234332},{"x":21.6067778640637,"y":8.49222417103083e-05},{"x":21.7357834523271,"y":2.27370194217454e-05},{"x":21.8647890405906,"y":6.66211216006926e-06},{"x":21.993794628854,"y":2.76940431106667e-05},{"x":22.1228002171175,"y":0.000118974587100182},{"x":22.2518058053809,"y":0.000308360321234206},{"x":22.3808113936444,"y":0.000509204876478545},{"x":22.5098169819078,"y":0.000565339865662365},{"x":22.6388225701713,"y":0.000458051146059714},{"x":22.7678281584347,"y":0.00033241321580199},{"x":22.8968337466982,"y":0.000287879072522208},{"x":23.0258393349616,"y":0.000272154368905277},{"x":23.1548449232251,"y":0.000231743427264571},{"x":23.2838505114885,"y":0.000225027304479882},{"x":23.412856099752,"y":0.00024069316472486},{"x":23.5418616880154,"y":0.000187461615950551},{"x":23.6708672762789,"y":9.67676326450323e-05},{"x":23.7998728645423,"y":7.28723320126704e-05},{"x":23.9288784528058,"y":0.000148833774407819},{"x":24.0578840410692,"y":0.00026982082805983},{"x":24.1868896293327,"y":0.000346172852803994},{"x":24.3158952175961,"y":0.000334661771985453},{"x":24.4449008058596,"y":0.000241898287564695},{"x":24.573906394123,"y":0.000120517524946357},{"x":24.7029119823865,"y":6.32841995564255e-05},{"x":24.83191757065,"y":0.000112687591515636},{"x":24.9609231589134,"y":0.000221785682519418},{"x":25.0899287471769,"y":0.000298657757748677},{"x":25.2189343354403,"y":0.000358158179457673},{"x":25.3479399237038,"y":0.00045947107469912},{"x":25.4769455119672,"y":0.000494255786849008},{"x":25.6059511002307,"y":0.000457412849287921},{"x":25.7349566884941,"y":0.000476520940086416},{"x":25.8639622767576,"y":0.000558454611302793},{"x":25.992967865021,"y":0.000571627491421238},{"x":26.1219734532845,"y":0.000396910075639988},{"x":26.2509790415479,"y":0.000169613865651461},{"x":26.3799846298114,"y":4.47720050586653e-05},{"x":26.5089902180748,"y":7.37171965660032e-06},{"x":26.6379958063383,"y":7.52726232073155e-07},{"x":26.7670013946017,"y":3.94404751213922e-07},{"x":26.8960069828652,"y":4.96393998214728e-06},{"x":27.0250125711286,"y":3.40405718704003e-05},{"x":27.1540181593921,"y":0.000117637150720763},{"x":27.2830237476555,"y":0.000221037210474969},{"x":27.412029335919,"y":0.000267802552852696},{"x":27.5410349241824,"y":0.00028196211674601},{"x":27.6700405124459,"y":0.000285795650384302},{"x":27.7990461007093,"y":0.000230459531872093},{"x":27.9280516889728,"y":0.000172613890181379},{"x":28.0570572772362,"y":0.000198128555293665},{"x":28.1860628654997,"y":0.000253671815167002},{"x":28.3150684537631,"y":0.000270449430784904},{"x":28.4440740420266,"y":0.000270926008723582},{"x":28.57307963029,"y":0.000255563338293982},{"x":28.7020852185535,"y":0.000216690406592601},{"x":28.8310908068169,"y":0.000212196565409355},{"x":28.9600963950804,"y":0.00023928998388656},{"x":29.0891019833438,"y":0.000204726939700944},{"x":29.2181075716073,"y":0.000105649522849755},{"x":29.3471131598707,"y":2.97660205421923e-05},{"x":29.4761187481342,"y":4.28924151059349e-06},{"x":29.6051243363976,"y":3.03212501456537e-07},{"x":29.7341299246611,"y":1.02786414839593e-08},{"x":29.8631355129245,"y":1.65229925492053e-10},{"x":29.992141101188,"y":1.32434578095973e-12},{"x":30.1211466894515,"y":9.63231268669644e-12},{"x":30.2501522777149,"y":6.41090781765737e-10},{"x":30.3791578659784,"y":2.19472090799949e-08},{"x":30.5081634542418,"y":4.06854772280157e-07},{"x":30.6371690425053,"y":4.27670551636603e-06},{"x":30.7661746307687,"y":2.62375753516889e-05},{"x":30.8951802190322,"y":9.56033036025746e-05},{"x":31.0241858072956,"y":0.000207865309090643},{"x":31.1531913955591,"y":0.000272403694616136},{"x":31.2821969838225,"y":0.000254427476586194},{"x":31.411202572086,"y":0.000252941749890264},{"x":31.5402081603494,"y":0.00024224409032071},{"x":31.6692137486129,"y":0.00014677567641582},{"x":31.7982193368763,"y":6.35816578062971e-05},{"x":31.9272249251398,"y":8.68223441056517e-05},{"x":32.0562305134032,"y":0.000194024107160273},{"x":32.1852361016667,"y":0.000252321173810841},{"x":32.3142416899301,"y":0.000169922558334788},{"x":32.4432472781936,"y":8.02453889215598e-05},{"x":32.572252866457,"y":0.00011036973391972},{"x":32.7012584547205,"y":0.000214763051064391},{"x":32.8302640429839,"y":0.000275593927414424},{"x":32.9592696312474,"y":0.000287873330513243},{"x":33.0882752195108,"y":0.000326156892579365},{"x":33.2172808077743,"y":0.00036806414304768},{"x":33.3462863960377,"y":0.000349040523099838},{"x":33.4752919843012,"y":0.000236561781280943},{"x":33.6042975725646,"y":0.0001076501484297},{"x":33.7333031608281,"y":5.86659788672031e-05},{"x":33.8623087490915,"y":0.000111968124482013},{"x":33.991314337355,"y":0.000204798805295162},{"x":34.1203199256184,"y":0.000221120025661485},{"x":34.2493255138819,"y":0.000141013477818098},{"x":34.3783311021453,"y":5.38343704972846e-05},{"x":34.5073366904088,"y":1.22167723393264e-05},{"x":34.6363422786722,"y":2.764786332996e-06},{"x":34.7653478669357,"y":1.11942064748922e-05},{"x":34.8943534551992,"y":5.63238372145003e-05},{"x":35.0233590434626,"y":0.000164499426134732},{"x":35.1523646317261,"y":0.000292579833649263},{"x":35.2813702199895,"y":0.000355353653934666},{"x":35.410375808253,"y":0.000324686883999096},{"x":35.5393813965164,"y":0.000218477989314138},{"x":35.6683869847799,"y":9.75451419244288e-05},{"x":35.7973925730433,"y":2.56323829657605e-05},{"x":35.9263981613068,"y":3.58936801116149e-06},{"x":36.0554037495702,"y":2.51378912452766e-07},{"x":36.1844093378337,"y":8.5134832541359e-09},{"x":36.3134149260971,"y":1.37202338505848e-10},{"x":36.4424205143606,"y":1.04450048679031e-12},{"x":36.571426102624,"y":3.74285778786308e-15},{"x":36.7004316908875,"y":1.2052183828055e-18},{"x":36.8294372791509,"y":4.30359001246905e-18},{"x":36.9584428674144,"y":7.02119768467709e-18},{"x":37.0874484556778,"y":1.69811813203264e-18},{"x":37.2164540439413,"y":2.20842850225814e-18},{"x":37.3454596322047,"y":3.73425465320183e-18},{"x":37.4744652204682,"y":7.96517606514808e-18},{"x":37.6034708087316,"y":9.39758284866182e-20},{"x":37.7324763969951,"y":1.88741143486183e-15},{"x":37.8614819852585,"y":5.11754195438138e-13},{"x":37.990487573522,"y":6.51790020880674e-11},{"x":38.1194931617854,"y":3.95312936734596e-09},{"x":38.2484987500489,"y":1.16685849538368e-07},{"x":38.3775043383123,"y":1.74837075135037e-06},{"x":38.5065099265758,"y":1.41446214439027e-05},{"x":38.6355155148392,"y":6.50171309803193e-05},{"x":38.7645211031027,"y":0.000169833672294163},{"x":38.8935266913661,"y":0.000243037841638922},{"x":39.0225322796296,"y":0.000185948409831085},{"x":39.151537867893,"y":7.64707610747619e-05},{"x":39.2805434561565,"y":1.71350916613906e-05},{"x":39.4095490444199,"y":2.07512593341334e-06},{"x":39.5385546326834,"y":1.3127821718707e-07},{"x":39.6675602209468,"y":4.20037582941384e-09},{"x":39.7965658092103,"y":2.15206889185961e-09},{"x":39.9255713974737,"y":6.91256807696476e-08},{"x":40.0545769857372,"y":1.24500356932566e-06},{"x":40.1835825740006,"y":1.21210984393674e-05},{"x":40.3125881622641,"y":6.35829473486108e-05},{"x":40.4415937505276,"y":0.000175165244150237},{"x":40.570599338791,"y":0.000248546767874264},{"x":40.6996049270545,"y":0.000183250243433407},{"x":40.8286105153179,"y":7.30483316458182e-05},{"x":40.9576161035814,"y":1.64178311701795e-05},{"x":41.0866216918448,"y":2.07394788202938e-06},{"x":41.2156272801083,"y":1.3982754989626e-07},{"x":41.3446328683717,"y":4.74827648277907e-09},{"x":41.4736384566352,"y":7.81751011760753e-11},{"x":41.6026440448986,"y":6.12004901830878e-13},{"x":41.7316496331621,"y":2.25232548336623e-15},{"x":41.8606552214255,"y":1.85265671536116e-18},{"x":41.989660809689,"y":0},{"x":42.1186663979524,"y":0},{"x":42.2476719862159,"y":0},{"x":42.3766775744793,"y":9.58925701451261e-18},{"x":42.5056831627428,"y":1.35594810164734e-17},{"x":42.6346887510062,"y":6.21995353266424e-18},{"x":42.7636943392697,"y":1.58898046687861e-18},{"x":42.8926999275331,"y":6.08716511434548e-19},{"x":43.0217055157966,"y":3.75512316876933e-18},{"x":43.15071110406,"y":5.40064314827339e-18},{"x":43.2797166923235,"y":1.93661846780821e-18},{"x":43.4087222805869,"y":1.55747441076397e-18},{"x":43.5377278688504,"y":6.20048505632802e-18},{"x":43.6667334571138,"y":9.30131036042905e-18},{"x":43.7957390453773,"y":5.0979067452037e-18},{"x":43.9247446336407,"y":0},{"x":44.0537502219042,"y":0},{"x":44.1827558101676,"y":0},{"x":44.3117613984311,"y":0},{"x":44.4407669866945,"y":0},{"x":44.569772574958,"y":2.23274205364618e-19},{"x":44.6987781632214,"y":4.94143716043631e-19},{"x":44.8277837514849,"y":5.32810887482625e-19},{"x":44.9567893397483,"y":1.3986989009242e-18},{"x":45.0857949280118,"y":0},{"x":45.2148005162752,"y":1.65989415012781e-18},{"x":45.3438061045387,"y":8.25789369639301e-18},{"x":45.4728116928021,"y":9.56286801941162e-18},{"x":45.6018172810656,"y":1.01172847311509e-18},{"x":45.7308228693291,"y":5.10780632111328e-18},{"x":45.8598284575925,"y":2.09049230067611e-18},{"x":45.988834045856,"y":7.7387251579404e-18},{"x":46.1178396341194,"y":0},{"x":46.2468452223829,"y":0},{"x":46.3758508106463,"y":1.32774172699325e-18},{"x":46.5048563989098,"y":1.95325639878002e-17},{"x":46.6338619871732,"y":5.15055284994587e-20},{"x":46.7628675754367,"y":1.90035479826106e-18},{"x":46.8918731637001,"y":1.20414743357815e-17},{"x":47.0208787519636,"y":4.45369147496641e-18},{"x":47.149884340227,"y":1.83907266800079e-19},{"x":47.2788899284905,"y":0},{"x":47.4078955167539,"y":4.91668366804169e-18},{"x":47.5369011050174,"y":5.19136736474831e-19},{"x":47.6659066932808,"y":0},{"x":47.7949122815443,"y":0},{"x":47.9239178698077,"y":3.03679390826451e-18},{"x":48.0529234580712,"y":6.66284300463004e-18},{"x":48.1819290463346,"y":1.71763694100054e-18},{"x":48.3109346345981,"y":5.86231185722626e-18},{"x":48.4399402228615,"y":5.74824900233121e-18},{"x":48.568945811125,"y":4.44880599767568e-18},{"x":48.6979513993884,"y":7.20601049242435e-18},{"x":48.8269569876519,"y":1.74157657441872e-17},{"x":48.9559625759153,"y":1.51131744774272e-17},{"x":49.0849681641788,"y":6.65193491463998e-18},{"x":49.2139737524422,"y":4.05267217034331e-18},{"x":49.3429793407057,"y":3.22276395557694e-18},{"x":49.4719849289691,"y":5.41312007167367e-18},{"x":49.6009905172326,"y":2.6836696869971e-18},{"x":49.729996105496,"y":0},{"x":49.8590016937595,"y":0},{"x":49.9880072820229,"y":0},{"x":50.1170128702864,"y":4.19263190769009e-19},{"x":50.2460184585498,"y":3.0801833400361e-18},{"x":50.3750240468133,"y":1.11828308070624e-17},{"x":50.5040296350767,"y":1.01470028348493e-17},{"x":50.6330352233402,"y":1.55652318676977e-18},{"x":50.7620408116036,"y":0},{"x":50.8910463998671,"y":7.7887832182105e-18},{"x":51.0200519881306,"y":3.44023903435435e-15},{"x":51.149057576394,"y":9.48928297463828e-13},{"x":51.2780631646575,"y":1.23308133588371e-10},{"x":51.4070687529209,"y":7.58142944030142e-09},{"x":51.5360743411844,"y":2.22874342468708e-07},{"x":51.6650799294478,"y":3.20161941905774e-06},{"x":51.7940855177113,"y":2.33746026290725e-05},{"x":51.9230911059747,"y":9.14854417270236e-05},{"x":52.0520966942382,"y":0.000199685110290936},{"x":52.1811022825016,"y":0.000241482932074817},{"x":52.3101078707651,"y":0.000155353685909165},{"x":52.4391134590285,"y":5.13732427065453e-05},{"x":52.568119047292,"y":8.67870414736984e-06},{"x":52.6971246355554,"y":7.64286541629971e-07},{"x":52.8261302238189,"y":3.61007495633807e-08},{"x":52.9551358120823,"y":9.65385990934533e-10},{"x":53.0841414003458,"y":2.52115545990451e-09},{"x":53.2131469886092,"y":7.41242564147715e-08},{"x":53.3421525768727,"y":1.1715584699379e-06},{"x":53.4711581651361,"y":1.06531837955176e-05},{"x":53.6001637533996,"y":5.63497228421616e-05},{"x":53.729169341663,"y":0.000164036748981374},{"x":53.8581749299265,"y":0.000249080452587504},{"x":53.9871805181899,"y":0.000194633853333662},{"x":54.1161861064534,"y":8.06433933095632e-05},{"x":54.2451916947168,"y":1.91741348058136e-05},{"x":54.3741972829803,"y":2.77779074266162e-06},{"x":54.5032028712437,"y":2.53077882305756e-07},{"x":54.6322084595072,"y":1.41915679290619e-08},{"x":54.7612140477706,"y":4.5168056195147e-10},{"x":54.8902196360341,"y":7.45768263793313e-12},{"x":55.0192252242975,"y":6.02211394486362e-14},{"x":55.148230812561,"y":6.67188222528967e-15},{"x":55.2772364008244,"y":1.81742909967828e-12},{"x":55.4062419890879,"y":2.4061785018006e-10},{"x":55.5352475773513,"y":1.49965340176132e-08},{"x":55.6642531656148,"y":4.4105571517083e-07},{"x":55.7932587538782,"y":6.15428929656478e-06},{"x":55.9222643421417,"y":4.12218125879383e-05},{"x":56.0512699304051,"y":0.000135734239432047},{"x":56.1802755186686,"y":0.000229274059329089},{"x":56.309281106932,"y":0.000210759702918523},{"x":56.4382866951955,"y":0.000111078259705958},{"x":56.567292283459,"y":3.42097297940703e-05},{"x":56.6962978717224,"y":6.11681764582533e-06},{"x":56.8253034599859,"y":6.25460722618539e-07},{"x":56.9543090482493,"y":3.54927002129378e-08},{"x":57.0833146365128,"y":1.06635959265165e-09},{"x":57.2123202247762,"y":1.61810253619407e-11},{"x":57.3413258130397,"y":1.1989544354747e-13},{"x":57.4703314013031,"y":4.31351472789991e-16},{"x":57.5993369895666,"y":3.73886220288684e-18},{"x":57.72834257783,"y":3.99290613668183e-18},{"x":57.8573481660935,"y":5.5834963441903e-18},{"x":57.9863537543569,"y":8.41326124782788e-18},{"x":58.1153593426204,"y":9.51233719115236e-18},{"x":58.2443649308838,"y":6.80505823298246e-18},{"x":58.3733705191473,"y":9.33126556667228e-18},{"x":58.5023761074107,"y":4.41107464803984e-18},{"x":58.6313816956742,"y":7.64016678177009e-18},{"x":58.7603872839376,"y":0},{"x":58.8893928722011,"y":0},{"x":59.0183984604645,"y":2.79476385243677e-18},{"x":59.147404048728,"y":1.12254529548172e-17},{"x":59.2764096369914,"y":1.50323627162875e-17},{"x":59.4054152252549,"y":1.01342999765302e-17},{"x":59.5344208135183,"y":6.27486343379434e-18},{"x":59.6634264017818,"y":1.10091117436734e-17},{"x":59.7924319900452,"y":4.1854509276809e-18},{"x":59.9214375783087,"y":0},{"x":60.0504431665721,"y":4.98897933360616e-19},{"x":60.1794487548356,"y":3.83231841201092e-18},{"x":60.308454343099,"y":6.90317536728207e-18},{"x":60.4374599313625,"y":0},{"x":60.5664655196259,"y":1.15924016195862e-18},{"x":60.6954711078894,"y":1.28946626159496e-17},{"x":60.8244766961528,"y":1.84690583565072e-18},{"x":60.9534822844163,"y":7.71534767433781e-18},{"x":61.0824878726797,"y":1.76722812619237e-19},{"x":61.2114934609432,"y":1.39743680626512e-17},{"x":61.3404990492066,"y":1.45502054006067e-17},{"x":61.4695046374701,"y":3.86079518017846e-18},{"x":61.5985102257335,"y":9.77025294181147e-18},{"x":61.727515813997,"y":1.16154141999814e-17},{"x":61.8565214022605,"y":1.05749333322035e-17},{"x":61.9855269905239,"y":1.18567414120332e-18},{"x":62.1145325787874,"y":3.95807103020591e-18},{"x":62.2435381670508,"y":3.51958532978293e-18},{"x":62.3725437553143,"y":4.2371507776776e-18},{"x":62.5015493435777,"y":8.19311739245184e-19},{"x":62.6305549318412,"y":0},{"x":62.7595605201046,"y":0},{"x":62.8885661083681,"y":0},{"x":63.0175716966315,"y":2.28966291755153e-18},{"x":63.146577284895,"y":3.67538361157147e-18},{"x":63.2755828731584,"y":1.14458959315325e-18},{"x":63.4045884614219,"y":4.70756435435715e-18},{"x":63.5335940496853,"y":2.25250563715634e-18},{"x":63.6625996379488,"y":5.85372242998442e-18},{"x":63.7916052262122,"y":2.78808598700354e-16},{"x":63.9206108144757,"y":7.95180863209656e-14},{"x":64.0496164027391,"y":1.12034034626641e-11},{"x":64.1786219910026,"y":7.9211660267578e-10},{"x":64.307627579266,"y":2.9266471698835e-08},{"x":64.4366331675295,"y":5.85746434035001e-07},{"x":64.5656387557929,"y":6.42513022421463e-06},{"x":64.6946443440564,"y":3.82828742145482e-05},{"x":64.8236499323198,"y":0.000123623239872877},{"x":64.9526555205833,"y":0.000220527132901098},{"x":65.0816611088467,"y":0.000221398156643263},{"x":65.2106666971102,"y":0.000123050228574864},{"x":65.3396722853736,"y":3.6054039245497e-05},{"x":65.4686778736371,"y":5.29943535156816e-06}],"type":"area","color":"#B71C1C","name":"F-distribution"}]},"theme":{"chart":{"backgroundColor":"transparent"},"colors":["#7cb5ec","#434348","#90ed7d","#f7a35c","#8085e9","#f15c80","#e4d354","#2b908f","#f45b5b","#91e8e1"]},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":[],"debug":false},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 3.2: Grafische weergave van variantiebronnen
+</p>
+</div>
+<p>Op basis van de berekende <span class="math inline">\(F\)</span>-waarde en de nul-distributie zoals weergegeven in figuur <a href="eigenschappen-van-een-lineair-regressiemodel.html#fig:Ffig">3.2</a>, zal de <span class="math inline">\(p\)</span>-waarde <span class="math inline">\(&lt; 0.001\)</span>. Het regressiemodel is met andere waaorden in staat om een significant deel van de variantie van <span class="math inline">\(Y\)</span> te verklaren op basis van waarden van <span class="math inline">\(X\)</span>.</p>
+<div class="dummies">
+<p>Bij uitbreiding naar meervoudige lineaire regressie wordt een model als volgt weergegeven:
+<span class="math inline">\(Y = \beta_0 + \beta_1X_1 + \beta_2X_2 + … + \epsilon\)</span>, waarbij <span class="math inline">\(Y\)</span> de afhankelijke continue variabele is, <span class="math inline">\(X_i\)</span> de onafhenkelijke variabele is, <span class="math inline">\(\beta_i\)</span> een inschatting is van het verband tussen <span class="math inline">\(X_i\)</span> en <span class="math inline">\(Y\)</span> en <span class="math inline">\(\epsilon\)</span> de fout is die gemaakt wordt door het model (<span class="math inline">\(Y_i - \hat{Y}_i\)</span>).</p>
+</div>
+</div>
+<div id="hypothesen" class="section level3 unnumbered">
+<h3>Hypothesen</h3>
+<p>Binnen regressie kunnen er twee hypothesen worden opgesteld: (1) een hypothese over de regressie-analyse zelf en (2) een hypothese over de <span class="math inline">\(\beta\)</span> coëfficiënten. De hypothese kunnen we algemeen als volgt opstellen:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span>: Er is geen verband (<span class="math inline">\(\beta_i = 0\)</span>) tussen de leeftijd (<span class="math inline">\(X_i\)</span>) van de therapeut en de gegeven tevredenheidsscore (<span class="math inline">\(Y_i\)</span>).</li>
+<li><span class="math inline">\(H_1\)</span>: Er is een verband (<span class="math inline">\(\beta_i \neq 0\)</span>) tussen de leeftijd (<span class="math inline">\(X_i\)</span>) van de therapeut en de gegeven tevredenheidsscore (<span class="math inline">\(Y_i\)</span>).</li>
+</ul>
+<p>Een significante <span class="math inline">\(\beta_i\)</span> wil dus zeggen significant verschillend van 0 en dus een meerwaarde om iets te zeggen over <span class="math inline">\(Y\)</span>. <strong>Let op</strong>: binnen deze hypothesen kan het ook over meervoudige regressie gaan met verschillende <span class="math inline">\(\beta\)</span> coefficiënten.</p>
+<p><span class="math inline">\(H_0\)</span> kan in dit geval <span class="math inline">\(\beta_1 = \beta_2 = \beta_3 = 0\)</span> zijn.</p>
+<div class="dummies">
+<p>Er wordt nooit een hypothese gevormd over <span class="math inline">\(\beta_0\)</span>. Kan je zelf bedenken waarom dit het geval is?</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="studie-naar-tevredenheid-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="voorwaarden-van-een-lineair-regressiemodel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["ugent-ebmstatIII.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section",
+"depth": 2,
+"scroll_highlight": true
+},
+"smart": false,
+"highlight": "pygments",
+"df_print": "kable"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
