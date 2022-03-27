@@ -1,9 +1,6 @@
 ---
 date: "2019-06-01"
 external_link: ""
-image:
-  caption: Photo by rawpixel on Unsplash
-  focal_point: Smart
 summary: The Chronic pain barometer is a project that aims to unravel the underying prognostic factors that are related to chronification of musculoskeletal pain.
 tags:
 - Chronic Pain

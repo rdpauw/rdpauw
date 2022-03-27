@@ -6,7 +6,7 @@ theme: "starter-academic"
 
 title: Robby De Pauw # Website name
 baseurl: 'brave-chandrasekhar-719c31.netlify.app' # Website URL
-copyright: '© 2021 Robby De Pauw' # Footer text, e.g. '© {year} Me'
+copyright: '© 2022 Robby De Pauw' # Footer text, e.g. '© {year} Me'
 
 ############################
 ## LANGUAGE

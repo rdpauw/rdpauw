@@ -11,11 +11,11 @@ education:
   - course: MSc in rehabilitation Sciences
     institution: Ghent University
     year: 2013
-email: "Robby.DePauw@Ugent.be"
+email: "Robby.DePauw@Sciensano.be"
 highlight_name: false
 interests:
-- Pain epidemiology
-- Chronic pain
+- Epidemiology
+- Rehabilitation
 - Health statistics
 - Non comminicable diseases
 organizations:
@@ -50,6 +50,6 @@ superuser: true
 title: Robby De Pauw
 ---
 
-Robby De Pauw is a researcher at Sciensano and a post-doctoral researcher at Ghent University. His research interests include chronic pain, musculoskeletal pain, health statistics and epidemiology.
+Robby De Pauw is a senior researcher at Sciensano and Ghent University.
 
-{{< icon name="download" pack="fas" >}} Download my {{< staticref "media/CV.pdf" "newtab" >}}CV{{< /staticref >}}.
+{{< icon name="download" pack="fas" >}} Download my {{< staticref "https://github.com/rdpauw/cv/raw/master/cv_template/cv_template.pdf" "newtab" >}}CV{{< /staticref >}}.
