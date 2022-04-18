@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chronic Pain | Robby De Pauw</title>
+    <link>https://brave-chandrasekhar-719c31.netlify.app/tag/chronic-pain/</link>
+      <atom:link href="https://brave-chandrasekhar-719c31.netlify.app/tag/chronic-pain/index.xml" rel="self" type="application/rss+xml" />
+    <description>Chronic Pain</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Robby De Pauw</copyright><lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://brave-chandrasekhar-719c31.netlify.app/media/icon_hu41b23f1f91a8b77af6288f6d868c851a_15727_512x512_fill_lanczos_center_2.png</url>
+      <title>Chronic Pain</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/tag/chronic-pain/</link>
+    </image>
+    
+    <item>
+      <title>Chronic Pain Barometer</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/project/chronic-pain-barometer/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/project/chronic-pain-barometer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Does conservative treatment change the brain in patients with chronic musculoskeletal pain? : a systematic review</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/publication/8504295/</link>
+      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/publication/8504295/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

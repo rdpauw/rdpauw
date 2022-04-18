@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1 | Robby De Pauw</title>
+    <link>https://brave-chandrasekhar-719c31.netlify.app/publication-type/1/</link>
+      <atom:link href="https://brave-chandrasekhar-719c31.netlify.app/publication-type/1/index.xml" rel="self" type="application/rss+xml" />
+    <description>1</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Robby De Pauw</copyright><lastBuildDate>Sun, 17 Oct 2021 21:50:11 +0000</lastBuildDate>
+    <image>
+      <url>https://brave-chandrasekhar-719c31.netlify.app/media/icon_hu41b23f1f91a8b77af6288f6d868c851a_15727_512x512_fill_lanczos_center_2.png</url>
+      <title>1</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/publication-type/1/</link>
+    </image>
+    
+    <item>
+      <title>ALTERED GREY MATTER MORPHOLOGY OF PAIN PROCESSING REGIONS IN CHRONIC WHIPLASH PATIENTS: PRELIMINARY RESULTS</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/publication/coppietersaltered/</link>
+      <pubDate>Sun, 17 Oct 2021 21:50:11 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/publication/coppietersaltered/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HUB DISRUPTION IN PATIENTS WITH CHRONIC NECK PAIN: A GRAPH ANALYTICAL APPROACH</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/publication/robby-de-pauw-60997977/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/publication/robby-de-pauw-60997977/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Is there a relationship between muscle characteristics and pain mechanisms in low back pain : an explorative study</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/publication/8544909/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/publication/8544909/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cognitive performance is related to central sensitization in patients with chronic whiplash-associated disorders and fibromyalgia: a case-control study</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/publication/coppieters-2015-cognitive/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/publication/coppieters-2015-cognitive/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

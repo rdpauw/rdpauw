@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epidemiology | Robby De Pauw</title>
+    <link>https://brave-chandrasekhar-719c31.netlify.app/tag/epidemiology/</link>
+      <atom:link href="https://brave-chandrasekhar-719c31.netlify.app/tag/epidemiology/index.xml" rel="self" type="application/rss+xml" />
+    <description>Epidemiology</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© 2022 Robby De Pauw</copyright><lastBuildDate>Sat, 01 May 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://brave-chandrasekhar-719c31.netlify.app/media/icon_hu41b23f1f91a8b77af6288f6d868c851a_15727_512x512_fill_lanczos_center_2.png</url>
+      <title>Epidemiology</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/tag/epidemiology/</link>
+    </image>
+    
+    <item>
+      <title>BeBOD - Belgian National Burden of Disease Study</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/project/bebod/</link>
+      <pubDate>Sat, 01 May 2021 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/project/bebod/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HELICON</title>
+      <link>https://brave-chandrasekhar-719c31.netlify.app/project/helicon/</link>
+      <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://brave-chandrasekhar-719c31.netlify.app/project/helicon/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
