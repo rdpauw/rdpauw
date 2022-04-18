@@ -29,21 +29,16 @@ experience:
     location: Ghent, Belgium
     date_start: '2019-10-01'
     date_end: ''
-    description: |2-
-        Research activities include:
-        
-        * Chronic pain
-        * Statistical modelling of pain
-        * Prognosis and prevention of musculoskeletal pain
+    description: Post-doctoral researcher focusing on musculoskeletal complaints.
 
-  - title: Researcher
+  - title: Senior Researcher
     company: Sciensano
     company_url: ''
-    company_logo: sciensano
+    company_logo: sciensano_transparent
     location: Ghent, Belgium
     date_start: '2020-08-01'
     date_end: ''
-    description: BeBod-study and health status report of the Belgian population.
+    description: Senior researcher working in the health indicators unit at the service of Chronic diseases and lifestyle.
         
   - title: PhD student
     company: Ghent University
@@ -52,7 +47,7 @@ experience:
     location: Ghent, Belgium
     date_start: '2013-10-01'
     date_end: '2019-10-01'
-    description: Conducting research on fundamental brain alterations in patients with chronic neck pain.
+    description: PhD student in Health Sciences focusing on brain alterations in patients with chronic neck pain.
 
 design:
   columns: '2'

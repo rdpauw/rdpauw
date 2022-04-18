@@ -17,7 +17,8 @@ interests:
 - Epidemiology
 - Rehabilitation
 - Health statistics
-- Non comminicable diseases
+- Non communicable diseases
+- R and Shiny
 organizations:
 - name: Sciensano
   url: https://www.sciensano.be

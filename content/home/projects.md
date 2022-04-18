@@ -27,10 +27,10 @@ content:
   filter_button:
   - name: All
     tag: '*'
-  - name: Chronic Pain
-    tag: Chronic Pain
+  - name: COVID-19
+    tag: covid-19
   - name: Epidemiology
-    tag: Epidemiology
+    tag: epidemiology
 
 design:
   # Choose how many columns the section has. Valid values: '1' or '2'.
