@@ -1,6 +1,2 @@
-[build]
-  publish = "_site"
-  command = "quarto render"
-
 [[plugins]]
   package = "@quarto/netlify-plugin-quarto"

@@ -11,4 +11,7 @@ format:
     css: styles.css
 
 execute:
+  echo: false
+  warning: false
+  message: false
   freeze: auto
