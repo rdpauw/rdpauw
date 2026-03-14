@@ -9,3 +9,6 @@ format:
   html:
     theme: none
     css: styles.css
+
+execute:
+  freeze: auto
