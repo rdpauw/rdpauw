@@ -1,0 +1,305 @@
+---
+title: ""
+format:
+  html:
+    theme: none
+    css: styles.css
+    toc: false
+    smooth-scroll: true
+    page-layout: full
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+library(dplyr)
+library(purrr)
+library(readr)
+library(glue)
+library(bib2df)
+```
+
+::: {.page-shell}
+
+::: {.masthead}
+::: {.masthead-main}
+
+# Robby De Pauw
+
+<p class="tagline">Senior Researcher · Visiting Professor · Biostatistics, Epidemiology, and Data-driven Health Research</p>
+
+:::
+
+::: {.masthead-side}
+**Website**  
+[robbydepauw.be](https://www.robbydepauw.be/)
+
+**Email**  
+[robby@example.com](mailto:robby@example.com)
+
+**Location**  
+Belgium
+:::
+:::
+
+::: {.section-nav .no-print}
+[About](#about)
+[Experience](#experience)
+[Education](#education)
+[Publications](#publications)
+[Shiny apps](#apps)
+[Projects](#projects)
+[PhD theses](#phd-theses)
+[Contact](#contact)
+:::
+
+## About {#about}
+
+I am a Senior Researcher at Sciensano and Visiting Professor at Ghent University. My work focuses on epidemiology, burden of disease, survey analysis, rehabilitation research, and the development of data-driven tools in R and Shiny.
+
+I am particularly interested in translating complex health data into actionable insights for research, policy, and clinical practice.
+
+## Experience {#experience}
+
+### Senior Researcher — Sciensano
+
+Public health monitoring, epidemiology, burden of disease, survey analyses, and dissemination tools.
+
+### Visiting Professor — Ghent University
+
+Teaching and supervision in biostatistics and epidemiology.
+
+## Education {#education}
+
+### PhD in Health Sciences
+
+Ghent University
+
+### MSc in Statistical Data Analysis
+
+Ghent University
+
+### MSc in Rehabilitation Sciences and Physiotherapy
+
+Ghent University
+
+## Publications {#publications}
+
+```{r}
+#| results: asis
+
+bib_file <- "data/publications.bib"
+
+if (file.exists(bib_file)) {
+
+  bib <- bib2df::bib2df(bib_file)
+
+  pubs <- bib |>
+    transmute(
+      year = suppressWarnings(as.integer(YEAR)),
+      title = stringr::str_squish(gsub("[{}]", "", TITLE)),
+      journal = stringr::str_squish(gsub("[{}]", "", dplyr::coalesce(JOURNAL, BOOKTITLE, ""))),
+      authors = AUTHOR,
+      doi = dplyr::coalesce(DOI, ""),
+      url = dplyr::coalesce(URL, "")
+    ) |>
+    arrange(desc(year), title)
+
+  make_pub <- function(year, title, journal, authors, doi, url) {
+
+    authors_txt <- if (length(authors) == 0 || all(is.na(authors))) {
+      ""
+    } else {
+      paste(unlist(authors), collapse = ", ")
+    }
+
+    link <- ""
+    if (!is.na(url) && nzchar(url)) {
+      link <- paste0('<a href="', url, '" target="_blank">Link</a>')
+    } else if (!is.na(doi) && nzchar(doi)) {
+      link <- paste0('<a href="https://doi.org/', doi, '" target="_blank">DOI</a>')
+    }
+
+    paste0(
+      '<div class="pub-item">',
+      '<div class="pub-year">', ifelse(is.na(year), "", year), '</div>',
+      '<div class="pub-body">',
+      '<p>', authors_txt, '</p>',
+      '<p><strong>', title, '</strong></p>',
+      '<p>', journal, if (nzchar(link)) paste0(' · ', link) else '', '</p>',
+      '</div></div>'
+    )
+  }
+
+  cat(paste(purrr::pmap_chr(pubs, make_pub), collapse = "\n"))
+
+} else {
+
+  cat('<p>Add your Zotero BibTeX export as <code>data/publications.bib</code>.</p>')
+
+}
+```
+
+## Shiny apps {#apps}
+
+```{r}
+#| results: asis
+
+apps_file <- "data/shiny_apps.csv"
+
+if (file.exists(apps_file)) {
+
+  apps <- readr::read_csv(apps_file, show_col_types = FALSE)
+
+  required_cols <- c("name", "description", "url")
+  if (all(required_cols %in% names(apps))) {
+
+    if (!"github" %in% names(apps)) apps$github <- ""
+
+    cards <- purrr::pmap_chr(
+      apps,
+      function(name, description, url, github = "", ...) {
+
+        gh <- if (!is.na(github) && nzchar(github)) {
+          paste0(' · <a href="', github, '" target="_blank">GitHub</a>')
+        } else ""
+
+        paste0(
+          '<div class="card">',
+          '<h3><a href="', url, '" target="_blank">', name, '</a></h3>',
+          '<p>', description, '</p>',
+          '<p><a href="', url, '" target="_blank">Open app</a>', gh, '</p>',
+          '</div>'
+        )
+      }
+    )
+
+    cat('<div class="card-grid">')
+    cat(paste(cards, collapse = "\n"))
+    cat('</div>')
+
+  } else {
+
+    cat('<p>The file <code>data/shiny_apps.csv</code> must contain at least: <code>name</code>, <code>description</code>, <code>url</code>.</p>')
+
+  }
+
+} else {
+
+  cat('<p>Add <code>data/shiny_apps.csv</code>.</p>')
+
+}
+```
+
+## Projects {#projects}
+
+```{r}
+#| results: asis
+
+projects_file <- "data/projects.csv"
+
+if (file.exists(projects_file)) {
+
+  projects <- readr::read_csv(projects_file, show_col_types = FALSE)
+
+  required_cols <- c("name", "description")
+  if (all(required_cols %in% names(projects))) {
+
+    if (!"organisation" %in% names(projects)) projects$organisation <- ""
+    if (!"link" %in% names(projects)) projects$link <- ""
+
+    cards <- purrr::pmap_chr(
+      projects,
+      function(name, description, organisation = "", link = "", ...) {
+
+        org_part <- if (!is.na(organisation) && nzchar(organisation)) {
+          paste0('<p class="card-status">', organisation, '</p>')
+        } else ""
+
+        link_part <- if (!is.na(link) && nzchar(link)) {
+          paste0('<p><a href="', link, '" target="_blank">More info</a></p>')
+        } else ""
+
+        paste0(
+          '<div class="card">',
+          '<h3>', name, '</h3>',
+          org_part,
+          '<p>', description, '</p>',
+          link_part,
+          '</div>'
+        )
+      }
+    )
+
+    cat('<div class="card-grid">')
+    cat(paste(cards, collapse = "\n"))
+    cat('</div>')
+
+  } else {
+
+    cat('<p>The file <code>data/projects.csv</code> must contain at least: <code>name</code>, <code>description</code>.</p>')
+
+  }
+
+} else {
+
+  cat('<p>Add <code>data/projects.csv</code>.</p>')
+
+}
+```
+
+## PhD theses {#phd-theses}
+
+```{r}
+#| results: asis
+
+theses_file <- "data/phd_theses.csv"
+
+if (file.exists(theses_file)) {
+
+  theses <- readr::read_csv(theses_file, show_col_types = FALSE)
+
+  required_cols <- c("title", "candidate", "institution", "period", "role")
+  if (all(required_cols %in% names(theses))) {
+
+    items <- purrr::pmap_chr(
+      theses,
+      function(title, candidate, institution, period, role, ...) {
+        paste0(
+          '<div class="thesis-item">',
+          '<p><strong>', title, '</strong><br>',
+          candidate, ' — ',
+          institution, ' · ',
+          period, ' · ',
+          role,
+          '</p>',
+          '</div>'
+        )
+      }
+    )
+
+    cat(paste(items, collapse = "\n"))
+
+  } else {
+
+    cat('<p>The file <code>data/phd_theses.csv</code> must contain: <code>title</code>, <code>candidate</code>, <code>institution</code>, <code>period</code>, <code>role</code>.</p>')
+
+  }
+
+} else {
+
+  cat('<p>Add <code>data/phd_theses.csv</code>.</p>')
+
+}
+```
+
+## Contact {#contact}
+
+**Email**  
+[robby@example.com](mailto:robby@example.com)
+
+**Website**  
+[www.robbydepauw.be](https://www.robbydepauw.be/)
+:::

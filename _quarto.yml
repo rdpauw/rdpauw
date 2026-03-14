@@ -1,0 +1,11 @@
+
+project:
+  type: website
+
+website:
+  title: "Robby De Pauw"
+
+format:
+  html:
+    theme: none
+    css: styles.css

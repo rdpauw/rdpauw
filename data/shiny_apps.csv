@@ -1,0 +1,3 @@
+name,description,url,github
+NEED,Shiny app developed for the NEED project to explore estimates for unmet health-related needs,https://epidata.sciensano.be/NEED,https://github.com/rdpauw
+BeBOD - Disability Adjusted Life Year,Shiny app developed for the Belgian national Burden of Disease study,https://burden.sciensano.be/shiny/daly,https://github.com/rdpauw
