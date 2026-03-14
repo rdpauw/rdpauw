@@ -37,7 +37,7 @@ library(bib2df)
 [robbydepauw.be](https://www.robbydepauw.be/)
 
 **Email**  
-[robby@example.com](mailto:robby@example.com)
+[robby.depauw@sciensano.be](robby.depauw@sciensano.be)
 
 **Location**  
 Belgium
@@ -298,7 +298,7 @@ if (file.exists(theses_file)) {
 ## Contact {#contact}
 
 **Email**  
-[robby@example.com](mailto:robby@example.com)
+[robby.depauw@sciensano.be](robby.depauw@sciensano.be)
 
 **Website**  
 [www.robbydepauw.be](https://www.robbydepauw.be/)
