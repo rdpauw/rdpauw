@@ -7,12 +7,16 @@ never the layout code.
 ## Render
 
 ```bash
-quarto render            # builds the HTML site into _site/
-quarto render index.qmd --to pdf   # builds Robby-De-Pauw-CV.pdf
+quarto render                                  # HTML site -> _site/ (what Netlify runs)
+quarto render index.qmd --to pdf --profile pdf # -> Robby-De-Pauw-CV.pdf
 ```
 
-`quarto render` (no arguments) builds both formats. The HTML masthead has a
-**Download PDF** button linking to `Robby-De-Pauw-CV.pdf`.
+The `pdf` format lives in a Quarto **profile** (`_quarto-pdf.yml`), so plain
+`quarto render` builds HTML only and the PDF is opt-in via `--profile pdf`.
+This is deliberate: Netlify's build image has no LaTeX, so keeping the PDF out
+of the default render is what lets the site deploy (see *PDF on Netlify* below).
+The HTML masthead's **Download PDF** button links to `Robby-De-Pauw-CV.pdf`;
+render it locally and commit it so the button resolves on the live site.
 
 ## Editing content
 
@@ -45,11 +49,27 @@ R packages used: `dplyr`, `readr`, `purrr`, `stringr`, `bib2df`
 
 ## PDF on Netlify
 
-The Netlify build renders HTML fine out of the box. Building the **PDF** on
-Netlify needs a TeX engine, which the base image lacks. Two options:
+Netlify's Quarto plugin runs `quarto render`, and its build image has **no
+LaTeX** — so if the `pdf` format is part of the default render, the build fails
+with *"No TeX installation was detected"*. That's why `pdf` is isolated in
+`_quarto-pdf.yml`: the Netlify build only ever renders HTML and deploys cleanly.
 
-1. **Simplest** — render the PDF locally and commit `Robby-De-Pauw-CV.pdf` to the
-   repo root. Netlify then just serves the committed file (no TeX needed).
-2. **Auto-build** — add `quarto install tinytex` to the Netlify build, or switch
-   the `pdf` format in `_quarto.yml` to `typst`, which ships inside Quarto and
-   needs no LaTeX. The CSV-driven layout works unchanged with either engine.
+To keep the **Download PDF** button working on the live site:
+
+1. Render locally: `quarto render index.qmd --to pdf --profile pdf`
+   (needs a TeX engine locally — `quarto install tinytex` once, if you don't
+   have one).
+2. Commit the resulting `Robby-De-Pauw-CV.pdf`. Because `index.qmd` links to it,
+   Quarto copies it into `_site/` during the HTML build, so the button resolves.
+
+Alternatives, if you'd rather Netlify build the PDF automatically:
+
+- **Typst** — move the `pdf:` block from `_quarto-pdf.yml` into `_quarto.yml`
+  and change `pdf:` to `typst:`. Typst ships inside Quarto (no TeX), so Netlify
+  builds it. Note the profile photo's rounded corners use a small LaTeX (TikZ)
+  snippet; under Typst that block would need a Typst equivalent (or the photo
+  falls back to a plain square).
+- **Install TeX on Netlify** — replace the plugin with a build command such as
+  `quarto install tinytex --no-prompt && quarto render`, and put `pdf` back in
+  `_quarto.yml`. Simplest to reason about, but every build then installs TeX
+  (slower, occasionally flaky).

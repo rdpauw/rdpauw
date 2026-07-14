@@ -1,0 +1,17 @@
+format:
+  pdf:
+    papersize: a4
+    geometry:
+      - margin=1.8cm
+    fontsize: 10pt
+    colorlinks: true
+    linkcolor: RoyalBlue
+    urlcolor: RoyalBlue
+    pdf-engine: xelatex
+    output-file: "Robby-De-Pauw-CV"
+    # TikZ powers the rounded-corner clip on the profile photo in the PDF.
+    include-in-header:
+      text: |
+        \usepackage{tikz}
+
+format-links: false
