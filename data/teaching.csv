@@ -1,11 +1,12 @@
-course,role,institution,ects
-Advanced Shiny Course,Lead,Sciensano,—
-Basic R Course,Lead,Sciensano,—
-Introduction to Statistics for the Manual Therapist (MSc),Lead,Breederode Hogeschool,10.0
-Advanced Statistics for the Manual Therapist (MSc),Lead,Breederode Hogeschool,10.0
-Evidence-Based Medicine and Statistics I (BSc),Co-lecturer,Ghent University,3.0
-Evidence-Based Medicine and Statistics II (BSc),Co-lecturer,Ghent University,4.0
-Evidence-Based Medicine and Statistics III (BSc),Lead,Ghent University,4.0
-Physiotherapy research: Lower limb (BSc),Practical lecturer,Ghent University,6.0
-Physiotherapy research & practice: Spine (BSc),Practical lecturer,Ghent University,5.0
-Clinical reasoning: Spine (MSc),Practical lecturer,Ghent University,9.0
+"course","role","institution","ects"
+"Advanced Shiny Course","Lead","Sciensano","—"
+"Basic R Course","Lead","Sciensano","—"
+"R for Data Science","Lead","Sciensano","—"
+"Introduction to Statistics for the Manual Therapist (MSc)","Lead","Breederode Hogeschool","10.0"
+"Advanced Statistics for the Manual Therapist (MSc)","Lead","Breederode Hogeschool","10.0"
+"Evidence-Based Medicine and Statistics I (BSc)","Co-lecturer","Ghent University","3.0"
+"Evidence-Based Medicine and Statistics II (BSc)","Co-lecturer","Ghent University","4.0"
+"Evidence-Based Medicine and Statistics III (BSc)","Lead","Ghent University","4.0"
+"Physiotherapy research: Lower limb (BSc)","Practical lecturer","Ghent University","6.0"
+"Physiotherapy research & practice: Spine (BSc)","Practical lecturer","Ghent University","5.0"
+"Clinical reasoning: Spine (MSc)","Practical lecturer","Ghent University","9.0"

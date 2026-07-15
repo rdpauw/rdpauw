@@ -20,6 +20,19 @@ render it locally and commit it so the button resolves on the live site.
 
 ## Editing content
 
+The easiest route is **`cv-data.xlsx`**: one tab per section, with a `Leesmij`
+tab explaining the rules. Edit it in Excel, save, then regenerate the CSVs:
+
+```r
+source("tools/xlsx_to_csv.R")   # cv-data.xlsx -> data/*.csv
+```
+
+Then render as usual. The site itself always reads `data/*.csv` — the workbook
+is purely an editing convenience, so the CSVs stay the committed source of
+truth and remain diffable in git. Editing the CSVs directly still works fine;
+just re-export the workbook (or keep editing the CSVs) so the two don't drift.
+Requires `readxl` (`install.packages("readxl")`).
+
 Each section is backed by one CSV in `data/`:
 
 | Section              | File                     | Columns |
@@ -46,6 +59,7 @@ text in `index.qmd`.
 
 R packages used: `dplyr`, `readr`, `purrr`, `stringr`, `bib2df`
 (`install.packages(c("dplyr","readr","purrr","stringr","bib2df"))`).
+`readxl` is needed only for `tools/xlsx_to_csv.R`, not for rendering.
 
 ## PDF on Netlify
 

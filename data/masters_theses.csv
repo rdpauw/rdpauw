@@ -1,32 +1,32 @@
-title,candidate,institution,year,note
-Development of a test protocol for changes in muscle function and structure in chronic idiopathic neck pain and chronic whiplash-associated disorders,S. Breyne,Ghent University,2014,
-Potential structural brain alterations associated with chronic neck pain: influence on motor outcome?,H. Mahieu & L. Meulepas,Ghent University,2016,
-Reliability of the Craniocervical Flexion Test and Scapular Holding Test in neck pain,M. De Nys & F. De Schrijver,Ghent University,2017,
-Critical factors for physiotherapy decision-making in neck pain,L. Deboiserie & J.-C. Defrancq,Ghent University,2017,
-Fatty infiltration and cross-sectional area of cervical muscles in chronic neck pain,P. Lins & N. Pattyn,Ghent University,2018,
-Role of CSA and fat infiltration of cervical musculature in chronic neck pain,A. Bossuyt & L. Bonneure,Ghent University,2018,
-Clinical characteristics predictive for classifying nonspecific neck pain by dominant pain mechanism,A. Defreyne & S. Denolf,Ghent University,2018,Acrehab Prize
-Classifying nonspecific neck pain by dominant pain mechanism,M. Smessaert & L. Van Heesvelde,Ghent University,2019,
-Tailored physiotherapy versus usual care in headache: a pilot study,"F. Beeuwsaert, H. De Middeleer & J. De Pelsemaeker",Ghent University,2019,
-Clinical decision-making in patients with headache,M. Reynvoet & J. Schepens,Ghent University,2019,
-Morphological cervical muscle changes and central pain measures in chronic neck pain,"G. Bosschaert, E. De Witte & S. Halsberghe",Ghent University,2019,
-From clinical indicators to therapeutic approach in headache — a Delphi survey,"B. Bartholomeus, M. Callens & J. Marcou",Ghent University,2019,
-"Treatment strategies for tension-type headache, migraine and cervicogenic headache — a Delphi study","H. De Beule, C. De Cuyper & F. De Cuyper",Ghent University,2020,
-Reliability of a physiotherapeutic test battery in headache and healthy controls,,Ghent University,2020,
-Risk factors for transformation of episodic to chronic tension-type headache,"A. Pringiers, M. Pringiers & M. Vandeputte",Ghent University,2020,
-Central sensitization in episodic and chronic migraine,"L.-L. Braem, M. Chaoui & L. Claeys",Ghent University,2021,
-Risk factors for a first episode of migraine,"O. Spillebeen, M. Timmerman & L. Timmermans",Ghent University,2021,
-Disrupted brain networks in chronic neck pain,"L. Nagels, L. Place & K. Van Driessche",Ghent University,2021,
-Correlation between white matter and motor function,J. Luca & J. De Vleesschauwer,Ghent University,2021,
-Modeling COVID-19 data: can we foresee the near future?,V. R. Rajendran,Ghent University (Statistical Data Analysis),2021,
-Projecting the impact of musculoskeletal complaints with age-period-cohort models,T. Saeys,Ghent University (SDA),2022,
-Projecting the impact of musculoskeletal disorders with age-period-cohort models,C. Forbang Echo,Ghent University (SDA),2022,
-Projecting the burden of non-communicable diseases to 2030 — a microsimulation study,L. Surdiacourt,Ghent University (SDA),2023,
-Health and economic impact of heart failure in Belgium,A. Barrenechea Pulache,University of Antwerp (Epidemiology),2023,
-"Public-health impact of road-traffic injuries in Belgium through DALYs, 2013–2021",M. Adams,Ghent University (SDA),2024,
-Disease burden of injuries — a mapping study of Belgian Hospital Discharge Data,E. Boiy,Ghent University (SDA),2024,Quetelet Prize
-Person-days of illness from hospitalization using Belgian Hospital Discharge Data,P. Coene,Ghent University (SDA),2024,
-Prediction of employment outcome after mild traumatic brain injury,H. Van Deynse,Ghent University (SDA),2024,
-Unsupervised learning for appraising unmet health-related needs,M. Van Nieuwenhove,Ghent University (SDA),2025,
-Machine learning to uncover patterns in non-communicable diseases: a Belgian case study,M. U. Malik,Ghent University (SDA),2025,
-Educational inequalities in all-cause mortality in Belgium (2012–2021),L. M. Guevara Alvarez,Ghent University (SDA),2025,
+"title","candidate","institution","year","note"
+"Development of a test protocol for changes in muscle function and structure in chronic idiopathic neck pain and chronic whiplash-associated disorders","S. Breyne","Ghent University","2014",""
+"Potential structural brain alterations associated with chronic neck pain: influence on motor outcome?","H. Mahieu & L. Meulepas","Ghent University","2016",""
+"Reliability of the Craniocervical Flexion Test and Scapular Holding Test in neck pain","M. De Nys & F. De Schrijver","Ghent University","2017",""
+"Critical factors for physiotherapy decision-making in neck pain","L. Deboiserie & J.-C. Defrancq","Ghent University","2017",""
+"Fatty infiltration and cross-sectional area of cervical muscles in chronic neck pain","P. Lins & N. Pattyn","Ghent University","2018",""
+"Role of CSA and fat infiltration of cervical musculature in chronic neck pain","A. Bossuyt & L. Bonneure","Ghent University","2018",""
+"Clinical characteristics predictive for classifying nonspecific neck pain by dominant pain mechanism","A. Defreyne & S. Denolf","Ghent University","2018","Acrehab Prize"
+"Classifying nonspecific neck pain by dominant pain mechanism","M. Smessaert & L. Van Heesvelde","Ghent University","2019",""
+"Tailored physiotherapy versus usual care in headache: a pilot study","F. Beeuwsaert, H. De Middeleer & J. De Pelsemaeker","Ghent University","2019",""
+"Clinical decision-making in patients with headache","M. Reynvoet & J. Schepens","Ghent University","2019",""
+"Morphological cervical muscle changes and central pain measures in chronic neck pain","G. Bosschaert, E. De Witte & S. Halsberghe","Ghent University","2019",""
+"From clinical indicators to therapeutic approach in headache — a Delphi survey","B. Bartholomeus, M. Callens & J. Marcou","Ghent University","2019",""
+"Treatment strategies for tension-type headache, migraine and cervicogenic headache — a Delphi study","H. De Beule, C. De Cuyper & F. De Cuyper","Ghent University","2020",""
+"Reliability of a physiotherapeutic test battery in headache and healthy controls","","Ghent University","2020",""
+"Risk factors for transformation of episodic to chronic tension-type headache","A. Pringiers, M. Pringiers & M. Vandeputte","Ghent University","2020",""
+"Central sensitization in episodic and chronic migraine","L.-L. Braem, M. Chaoui & L. Claeys","Ghent University","2021",""
+"Risk factors for a first episode of migraine","O. Spillebeen, M. Timmerman & L. Timmermans","Ghent University","2021",""
+"Disrupted brain networks in chronic neck pain","L. Nagels, L. Place & K. Van Driessche","Ghent University","2021",""
+"Correlation between white matter and motor function","J. Luca & J. De Vleesschauwer","Ghent University","2021",""
+"Modeling COVID-19 data: can we foresee the near future?","V. R. Rajendran","Ghent University (Statistical Data Analysis)","2021",""
+"Projecting the impact of musculoskeletal complaints with age-period-cohort models","T. Saeys","Ghent University (SDA)","2022",""
+"Projecting the impact of musculoskeletal disorders with age-period-cohort models","C. Forbang Echo","Ghent University (SDA)","2022",""
+"Projecting the burden of non-communicable diseases to 2030 — a microsimulation study","L. Surdiacourt","Ghent University (SDA)","2023",""
+"Health and economic impact of heart failure in Belgium","A. Barrenechea Pulache","University of Antwerp (Epidemiology)","2023",""
+"Public-health impact of road-traffic injuries in Belgium through DALYs, 2013–2021","M. Adams","Ghent University (SDA)","2024",""
+"Disease burden of injuries — a mapping study of Belgian Hospital Discharge Data","E. Boiy","Ghent University (SDA)","2024","Quetelet Prize"
+"Person-days of illness from hospitalization using Belgian Hospital Discharge Data","P. Coene","Ghent University (SDA)","2024",""
+"Prediction of employment outcome after mild traumatic brain injury","H. Van Deynse","Ghent University (SDA)","2024",""
+"Unsupervised learning for appraising unmet health-related needs","M. Van Nieuwenhove","Ghent University (SDA)","2025",""
+"Machine learning to uncover patterns in non-communicable diseases: a Belgian case study","M. U. Malik","Ghent University (SDA)","2025",""
+"Educational inequalities in all-cause mortality in Belgium (2012–2021)","L. M. Guevara Alvarez","Ghent University (SDA)","2025",""
