@@ -47,21 +47,21 @@ tl_pdf <- function(main, sub, when)
 ::: {.masthead-left}
 ```{r}
 #| results: asis
-photo <- "data/profile.jpg"
-if (file.exists(photo)) {
-  if (is_html) {
-    cat(paste0('<div class="masthead-photo"><img class="profile-photo" src="',
-               photo, '" alt="Robby De Pauw"></div>'))
-  } else {
-    cat(paste0(
-      '```{=latex}\n',
-      '\\begin{tikzpicture}\n',
-      '\\clip[rounded corners=8pt] (0,0) rectangle (2.6,2.6);\n',
-      '\\node[anchor=south west,inner sep=0] at (0,0) ',
-      '{\\includegraphics[width=2.6cm,height=2.6cm]{', photo, '}};\n',
-      '\\end{tikzpicture}\n', '```\n'))
-  }
-}
+# photo <- "data/profile.jpg"
+# if (file.exists(photo)) {
+#   if (is_html) {
+#     cat(paste0('<div class="masthead-photo"><img class="profile-photo" src="',
+#                photo, '" alt="Robby De Pauw"></div>'))
+#   } else {
+#     cat(paste0(
+#       '```{=latex}\n',
+#       '\\begin{tikzpicture}\n',
+#       '\\clip[rounded corners=8pt] (0,0) rectangle (2.6,2.6);\n',
+#       '\\node[anchor=south west,inner sep=0] at (0,0) ',
+#       '{\\includegraphics[width=2.6cm,height=2.6cm]{', photo, '}};\n',
+#       '\\end{tikzpicture}\n', '```\n'))
+#   }
+# }
 ```
 
 ::: {.masthead-main}
@@ -82,7 +82,7 @@ Public-health researcher (PhD) combining health sciences with advanced methods i
 
 ::: {.masthead-side}
 **Email**  
-[robby.depauw@sciensano.be](mailto:robby.depauw@sciensano.be)
+[depauwrobby@gmail.com](mailto:depauwrobby@gmail.com)
 
 **Website**  
 [robbydepauw.be](https://www.robbydepauw.be/)
@@ -389,7 +389,7 @@ emit(d,
 ## Contact {#contact}
 
 **Email**  
-[robby.depauw@sciensano.be](mailto:robby.depauw@sciensano.be)
+[depauwrobby@gmail.com](mailto:depauwrobby@gmail.com)
 
 **Website**  
 [www.robbydepauw.be](https://www.robbydepauw.be/)
