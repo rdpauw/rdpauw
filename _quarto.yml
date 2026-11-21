@@ -8,12 +8,14 @@ format:
   html:
     theme: none
     css: styles.css
-    toc: false
     page-layout: full
+    include-after-body: toc.html
     smooth-scroll: true
 
 execute:
   echo: false
   warning: false
   message: false
+  # Netlify has no R, so it reuses the frozen results committed in _freeze/.
+  # tools/update-cv.ps1 renders index.qmd directly, which always re-executes.
   freeze: auto

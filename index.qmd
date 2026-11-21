@@ -10,11 +10,19 @@ library(purrr)
 library(stringr)
 library(bib2df)
 
-# Output-format switch: HTML keeps the styled cards/grid; PDF gets clean markdown.
+# Output-format switch: HTML keeps the styled layout; PDF gets clean markdown.
 is_html <- knitr::is_html_output()
 
-# Read a data file, returning NULL if it is absent.
-rd <- function(f) if (file.exists(f)) readr::read_csv(f, show_col_types = FALSE) else NULL
+# List content comes from data/<section>.csv, generated from cv-data.xlsx by
+# tools/xlsx_to_csv.R (run automatically by the GitHub Actions workflow).
+# Everything is read as text so "2013–2019" stays exactly as typed.
+rd <- function(nm) {
+  f <- file.path("data", paste0(nm, ".csv"))
+  if (!file.exists(f)) return(NULL)
+  d <- readr::read_csv(f, col_types = readr::cols(.default = "c"), show_col_types = FALSE)
+  d[] <- lapply(d, function(x) { x[is.na(x)] <- ""; x })
+  d
+}
 
 # Generic row renderer. `html_row`/`pdf_row` are functions of a named list `r`
 # (one row, every value coerced to character, NA -> ""). Using paste0 (not
@@ -47,26 +55,33 @@ tl_pdf <- function(main, sub, when)
 ::: {.masthead-left}
 ```{r}
 #| results: asis
-# photo <- "data/profile.jpg"
-# if (file.exists(photo)) {
-#   if (is_html) {
-#     cat(paste0('<div class="masthead-photo"><img class="profile-photo" src="',
-#                photo, '" alt="Robby De Pauw"></div>'))
-#   } else {
-#     cat(paste0(
-#       '```{=latex}\n',
-#       '\\begin{tikzpicture}\n',
-#       '\\clip[rounded corners=8pt] (0,0) rectangle (2.6,2.6);\n',
-#       '\\node[anchor=south west,inner sep=0] at (0,0) ',
-#       '{\\includegraphics[width=2.6cm,height=2.6cm]{', photo, '}};\n',
-#       '\\end{tikzpicture}\n', '```\n'))
-#   }
-# }
+photo <- "data/profile.jpg"
+if (file.exists(photo)) {
+  if (is_html) {
+    cat(paste0('<div class="masthead-photo"><img class="profile-photo" src="',
+               photo, '" alt="Robby De Pauw"></div>'))
+  } else {
+    # Rounded corners need TikZ, which is loaded by the pdf profile
+    # (_quarto-pdf.yml). If this is rendered without that profile, fall back to
+    # a plain square photo rather than failing on an undefined environment.
+    cat(paste0(
+      '```{=latex}\n',
+      '\\ifdefined\\tikzpicture\n',
+      '  \\begin{tikzpicture}\n',
+      '  \\clip[rounded corners=8pt] (0,0) rectangle (2.6,2.6);\n',
+      '  \\node[anchor=south west,inner sep=0] at (0,0) ',
+      '{\\includegraphics[width=2.6cm,height=2.6cm]{', photo, '}};\n',
+      '  \\end{tikzpicture}\n',
+      '\\else\n',
+      '  \\includegraphics[width=2.6cm,height=2.6cm]{', photo, '}\n',
+      '\\fi\n', '```\n'))
+  }
+}
 ```
 
 ::: {.masthead-main}
 
-# Robby De Pauw
+# Robby De Pauw {.unnumbered .unlisted}
 
 [Senior Researcher · Visiting Professor · Biostatistics, Epidemiology & Data-driven Health Research]{.tagline}
 
@@ -81,37 +96,33 @@ Public-health researcher (PhD) combining health sciences with advanced methods i
 :::
 
 ::: {.masthead-side}
-**Email**  
+**Email**\
 [depauwrobby@gmail.com](mailto:depauwrobby@gmail.com)
 
-**Website**  
+**Website**\
 [robbydepauw.be](https://www.robbydepauw.be/)
 
-**ORCID**  
+**ORCID**\
 [0000-0002-4242-9062](https://orcid.org/0000-0002-4242-9062)
 
-**Google Scholar**  
+**Google Scholar**\
 [Profile](https://scholar.google.com/citations?user=ZDPPxVkAAAAJ&hl=nl)
 
-**Location**  
+**Location**\
 Belgium
 :::
 :::
 
 ::: {.content-visible when-format="html"}
-::: {.section-nav .no-print}
-[Profile](#profile)
-[Experience](#experience)
-[Education](#education)
-[Funding](#funding)
-[Projects](#projects)
-[Publications](#publications)
-[Teaching](#teaching)
-[Supervision](#supervision)
-[Talks](#talks)
-[Service](#service)
-[Contact](#contact)
+<nav id="cv-toc" class="cv-toc no-print"></nav>
 :::
+
+::: {.content-visible when-format="pdf"}
+```{=latex}
+\renewcommand*\contentsname{Contents}
+\tableofcontents
+\bigskip
+```
 :::
 
 ## Profile {#profile}
@@ -122,7 +133,7 @@ Public-health researcher combining expertise in health sciences with advanced me
 
 ```{r}
 #| results: asis
-d <- rd("data/appointments.csv")
+d <- rd("appointments")
 emit(d,
   function(r) tl_html(r$role, r$institution, r$period),
   function(r) tl_pdf(r$role, r$institution, r$period))
@@ -132,7 +143,7 @@ emit(d,
 
 ```{r}
 #| results: asis
-d <- rd("data/education.csv")
+d <- rd("education")
 emit(d,
   function(r) tl_html(r$qualification, r$institution, r$year),
   function(r) tl_pdf(r$qualification, r$institution, r$year))
@@ -154,7 +165,7 @@ emit(d,
 
 ```{r}
 #| results: asis
-d <- rd("data/funding.csv")
+d <- rd("funding")
 emit(d,
   function(r) tl_html(r$project, paste0(r$funder, ' · ', r$amount), r$period),
   function(r) paste0('- **', r$project, '** — ', r$funder, ' · ', r$amount, ' · ', r$period))
@@ -166,20 +177,14 @@ Total competitive funding secured: approximately **€2,000,000**.
 
 ```{r}
 #| results: asis
-d <- rd("data/projects.csv")
-if (is_html) cat('<div class="card-grid">\n')
-emit(d,
-  function(r) {
-    org  <- if (nzchar(r$organisation)) paste0('<p class="card-status">', r$organisation, '</p>') else ''
-    link <- if (nzchar(r$link)) paste0('<p><a href="', r$link, '" target="_blank">More info</a></p>') else ''
-    paste0('<div class="card"><h3>', r$name, '</h3>', org, '<p>', r$description, '</p>', link, '</div>')
-  },
-  function(r) {
-    org  <- if (nzchar(r$organisation)) paste0(' *(', r$organisation, ')*') else ''
-    link <- if (nzchar(r$link)) paste0(' [More info](', r$link, ').') else ''
-    paste0('**', r$name, '**', org, '. ', r$description, link, '\n')
-  })
-if (is_html) cat('</div>')
+# Plain list (was a card grid): name — description · organisation · link
+d <- rd("projects")
+row <- function(r) {
+  org  <- if (nzchar(r$organisation)) paste0(' · *', r$organisation, '*') else ''
+  link <- if (nzchar(r$link)) paste0(' · [More info](', r$link, ')') else ''
+  paste0('- **', r$name, '** — ', r$description, org, link)
+}
+emit(d, row, row)
 ```
 
 ## Publications {#publications}
@@ -258,26 +263,16 @@ if (!file.exists(bib_file)) {
 
 ```{r}
 #| results: asis
-apps <- rd("data/shiny_apps.csv")
+# Plain list (was a card grid): name — description · Open app · GitHub
+apps <- rd("shiny_apps")
 if (is.null(apps) || nrow(apps) == 0) {
-  cat(if (is_html)
-        '<p class="muted">Selected interactive apps and dashboards will be listed here.</p>'
-      else
-        '_Selected interactive apps and dashboards will be listed here._')
+  cat('_Selected interactive apps and dashboards will be listed here._')
 } else {
-  if (is_html) cat('<div class="card-grid">\n')
-  emit(apps,
-    function(r) {
-      gh <- if (nzchar(r$github)) paste0(' · <a href="', r$github, '" target="_blank">GitHub</a>') else ''
-      paste0('<div class="card"><h3><a href="', r$url, '" target="_blank">', r$name,
-             '</a></h3><p>', r$description, '</p><p><a href="', r$url,
-             '" target="_blank">Open app</a>', gh, '</p></div>')
-    },
-    function(r) {
-      gh <- if (nzchar(r$github)) paste0(' · [GitHub](', r$github, ')') else ''
-      paste0('**', r$name, '**. ', r$description, ' [Open app](', r$url, ')', gh, '\n')
-    })
-  if (is_html) cat('</div>')
+  row <- function(r) {
+    gh <- if (nzchar(r$github)) paste0(' · [GitHub](', r$github, ')') else ''
+    paste0('- **', r$name, '** — ', r$description, ' · [Open app](', r$url, ')', gh)
+  }
+  emit(apps, row, row)
 }
 ```
 
@@ -285,7 +280,7 @@ if (is.null(apps) || nrow(apps) == 0) {
 
 ```{r}
 #| results: asis
-d <- rd("data/teaching.csv")
+d <- rd("teaching")
 emit(d,
   function(r) {
     ects <- if (nzchar(r$ects) && r$ects != "—") paste0(' · ', r$ects, ' ECTS') else ''
@@ -303,7 +298,7 @@ emit(d,
 
 ```{r}
 #| results: asis
-d <- rd("data/phd_theses.csv")
+d <- rd("phd_theses")
 emit(d,
   function(r) tl_html(r$title, paste0(r$candidate, ' · ', r$institution, ' · ', r$role), r$period),
   function(r) paste0('- **', r$title, '** — ', r$candidate, ' · ', r$institution,
@@ -314,7 +309,7 @@ emit(d,
 
 ```{r}
 #| results: asis
-d <- rd("data/masters_theses.csv")
+d <- rd("masters_theses")
 emit(d,
   function(r) {
     note <- if (nzchar(r$note)) paste0(' · <em>', r$note, '</em>') else ''
@@ -332,7 +327,7 @@ emit(d,
 
 ```{r}
 #| results: asis
-d <- rd("data/invited_talks.csv")
+d <- rd("invited_talks")
 if (!is.null(d)) d <- dplyr::arrange(d, dplyr::desc(year))
 emit(d,
   function(r) {
@@ -351,7 +346,7 @@ emit(d,
 
 ```{r}
 #| results: asis
-d <- rd("data/awards.csv")
+d <- rd("awards")
 if (is_html) cat('<ul class="award-list">\n')
 emit(d,
   function(r) paste0('<li>', r$award, '</li>'),
@@ -363,7 +358,7 @@ if (is_html) cat('</ul>')
 
 ```{r}
 #| results: asis
-d <- rd("data/training.csv")
+d <- rd("training")
 emit(d,
   function(r) tl_html(r$item, r$institution, r$year),
   function(r) paste0('- **', r$item, '** — ', r$institution, ' · ', r$year))
@@ -388,16 +383,16 @@ emit(d,
 
 ## Contact {#contact}
 
-**Email**  
+**Email**\
 [depauwrobby@gmail.com](mailto:depauwrobby@gmail.com)
 
-**Website**  
+**Website**\
 [www.robbydepauw.be](https://www.robbydepauw.be/)
 
-**ORCID**  
+**ORCID**\
 [0000-0002-4242-9062](https://orcid.org/0000-0002-4242-9062)
 
-**Google Scholar**  
+**Google Scholar**\
 [scholar.google.com](https://scholar.google.com/citations?user=ZDPPxVkAAAAJ&hl=nl)
 
 :::

@@ -1,0 +1,14 @@
+<script>
+// Build the "Contents" list from the section headings (h2, with h3 indented),
+// so the TOC always matches the CV without maintaining it by hand.
+document.addEventListener("DOMContentLoaded", function () {
+  var nav = document.getElementById("cv-toc");
+  if (!nav) return;
+  var items = [];
+  document.querySelectorAll(".page-shell h2[id], .page-shell h3[id]").forEach(function (h) {
+    var sub = h.tagName === "H3" ? ' class="toc-sub"' : "";
+    items.push("<li" + sub + '><a href="#' + h.id + '">' + h.textContent + "</a></li>");
+  });
+  nav.innerHTML = "<h2>Contents</h2><ul>" + items.join("") + "</ul>";
+});
+</script>

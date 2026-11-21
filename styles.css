@@ -19,13 +19,6 @@ body {
   padding-bottom:20px;
 }
 
-.section-nav{
-  margin-top:20px;
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
 .cv-section{
   margin-top:40px;
 }
@@ -40,19 +33,6 @@ body {
 .pub-year{
   font-weight:bold;
   color:#666;
-}
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
-
-.card{
-  border:1px solid #ddd;
-  border-radius:8px;
-  padding:15px;
-  background:#fafafa;
 }
 
 .thesis-item {
@@ -100,6 +80,23 @@ body {
 .pub-body p { margin: 2px 0; }
 .pub-authors { color: #444; font-size: 0.92rem; }
 .pub-venue  { color: #666; font-size: 0.9rem; }
-.card-status { color: #888; font-size: 0.85rem; margin: 0 0 6px; }
 .award-list { margin: 0; padding-left: 1.2rem; }
 .muted { color: #999; }
+
+/* Table of contents: filled from the headings by toc.html. */
+.cv-toc {
+  margin-top: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+.cv-toc h2 { font-size: 1rem; margin: 0 0 6px; }
+.cv-toc ul { list-style: none; margin: 0; padding: 0; columns: 3 200px; }
+.cv-toc li { margin: 0 0 3px; break-inside: avoid; }
+.cv-toc li.toc-sub { padding-left: 1rem; font-size: 0.85rem; }
+.cv-toc a { text-decoration: none; color: #333; }
+.cv-toc a:hover { text-decoration: underline; }
+@media print { .cv-toc { display: none; } }
+
+/* Projects / Shiny apps are plain lists now. */
+.cv-list li, .page-shell ul li { margin-bottom: 6px; }

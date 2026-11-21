@@ -1,4 +1,4 @@
-# Regenerate data/*.csv from cv-data.xlsx
+# Regenerate data/*.csv from cv-data.xlsx (also run by .github/workflows/update-cv.yml)
 #
 #   source("tools/xlsx_to_csv.R")
 #

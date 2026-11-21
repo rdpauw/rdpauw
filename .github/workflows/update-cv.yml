@@ -1,0 +1,90 @@
+# Rebuild the CV whenever the workbook (or layout) is pushed, and once a day.
+#
+#   cv-data.xlsx --(R: tools/xlsx_to_csv.R)--> data/*.csv --(Quarto)--> PDF + site
+#
+# The regenerated CSVs, frozen results (_freeze/) and PDF are committed back to
+# main; Netlify then deploys the site from that commit as before. Commits made
+# with GITHUB_TOKEN do not trigger this workflow again, so there is no loop.
+
+name: Update CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - cv-data.xlsx
+      - data/publications.bib
+      - data/profile.jpg
+      - index.qmd
+      - styles.css
+      - toc.html
+      - _quarto.yml
+      - _quarto-pdf.yml
+      - tools/xlsx_to_csv.R
+  schedule:
+    - cron: "0 5 * * *"   # daily, 05:00 UTC
+  workflow_dispatch:       # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-cv
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::readxl
+            any::dplyr
+            any::readr
+            any::purrr
+            any::stringr
+            any::bib2df
+            any::knitr
+            any::rmarkdown
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+
+      - name: Excel -> CSV
+        run: Rscript tools/xlsx_to_csv.R
+
+      # PDF first: a single-file PDF render resets _site/, so copy the PDF out
+      # before the HTML render (which copies it back in for "Download PDF").
+      # Rendering index.qmd directly (not the project) always re-runs the R code.
+      - name: Render PDF
+        run: |
+          quarto render index.qmd --to pdf --profile pdf
+          cp _site/Robby-De-Pauw-CV.pdf Robby-De-Pauw-CV.pdf
+
+      - name: Render HTML
+        run: quarto render index.qmd
+
+      # The PDF's bytes change on every render (timestamps), so only publish
+      # when the CSVs or the frozen results changed - or the PDF is new.
+      - name: Commit and push if the CV changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/*.csv _freeze
+          if git diff --cached --quiet && git ls-files --error-unmatch Robby-De-Pauw-CV.pdf >/dev/null 2>&1; then
+            echo "No content change."
+            exit 0
+          fi
+          git add Robby-De-Pauw-CV.pdf
+          git commit -m "CV auto-update $(date -u +'%Y-%m-%d %H:%M') UTC"
+          git pull --rebase
+          git push
+

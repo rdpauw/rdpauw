@@ -1,89 +1,69 @@
 # Robby De Pauw — CV website
 
 A data-driven Quarto CV that renders to **HTML** (the website) and **PDF**.
-All content lives in `data/*.csv`, so updating the CV means editing a spreadsheet,
-never the layout code.
+All list content is edited in **`cv-data.xlsx`** (one sheet per section, see the
+`Leesmij` tab); publications come from `data/publications.bib` (Zotero export).
+Both outputs are plain lists with a table of contents under the header.
 
-## Render
+## How it updates (GitHub Actions)
+
+```
+cv-data.xlsx --(R: tools/xlsx_to_csv.R)--> data/*.csv --(Quarto)--> PDF + site
+```
+
+`.github/workflows/update-cv.yml` runs this pipeline on GitHub:
+
+- **on every push** that changes `cv-data.xlsx` (or the bib, photo, layout or
+  config files),
+- **daily** at 05:00 UTC,
+- **on demand** via *Actions → Update CV → Run workflow*.
+
+When the CSVs or the rendered content changed, it commits the regenerated
+`data/*.csv`, `_freeze/` and `Robby-De-Pauw-CV.pdf` back to `main`, and Netlify
+deploys that commit. So updating the CV = edit the workbook, save, commit and
+push it (e.g. with GitHub Desktop). Pull before your next edit to get the bot's
+commit.
+
+GitHub pauses scheduled workflows after 60 days without repository activity;
+re-enable it in the Actions tab if that happens.
+
+## Render locally
 
 ```bash
-quarto render                                  # HTML site -> _site/ (what Netlify runs)
-quarto render index.qmd --to pdf --profile pdf # -> Robby-De-Pauw-CV.pdf
+Rscript tools/xlsx_to_csv.R                      # Excel -> data/*.csv
+quarto render index.qmd --to pdf --profile pdf   # PDF first: this resets _site/
+cp _site/Robby-De-Pauw-CV.pdf .
+quarto render index.qmd                          # HTML -> _site/
 ```
 
-The `pdf` format lives in a Quarto **profile** (`_quarto-pdf.yml`), so plain
-`quarto render` builds HTML only and the PDF is opt-in via `--profile pdf`.
-This is deliberate: Netlify's build image has no LaTeX, so keeping the PDF out
-of the default render is what lets the site deploy (see *PDF on Netlify* below).
-The HTML masthead's **Download PDF** button links to `Robby-De-Pauw-CV.pdf`;
-render it locally and commit it so the button resolves on the live site.
+Render `index.qmd` explicitly (not the whole project) so the R code re-runs;
+project renders reuse the frozen results in `_freeze/`, which is what Netlify
+does (it has no R).
 
-## Editing content
+## Sheets and columns
 
-The easiest route is **`cv-data.xlsx`**: one tab per section, with a `Leesmij`
-tab explaining the rules. Edit it in Excel, save, then regenerate the CSVs:
+| Section              | Sheet → `data/<sheet>.csv` | Columns |
+|----------------------|------------------|---------|
+| Experience           | `appointments`   | role, institution, period |
+| Education            | `education`      | qualification, institution, year |
+| Competitive funding  | `funding`        | project, funder, amount, period |
+| Projects             | `projects`       | name, description, organisation, link |
+| Shiny apps           | `shiny_apps`     | name, description, url, github |
+| Teaching             | `teaching`       | course, role, institution, ects |
+| Doctoral supervision | `phd_theses`     | title, candidate, institution, period, role |
+| Master's theses      | `masters_theses` | title, candidate, institution, year, note |
+| Invited talks        | `invited_talks`  | year, title, venue, location, invited |
+| Prizes & awards      | `awards`         | award |
+| Additional training  | `training`       | item, institution, year |
 
-```r
-source("tools/xlsx_to_csv.R")   # cv-data.xlsx -> data/*.csv
-```
+The narrative sections (Profile, Selected research achievements, Academic
+service, Societal impact) are plain text in `index.qmd`.
 
-Then render as usual. The site itself always reads `data/*.csv` — the workbook
-is purely an editing convenience, so the CSVs stay the committed source of
-truth and remain diffable in git. Editing the CSVs directly still works fine;
-just re-export the workbook (or keep editing the CSVs) so the two don't drift.
-Requires `readxl` (`install.packages("readxl")`).
+R packages: `readxl`, `dplyr`, `readr`, `purrr`, `stringr`, `bib2df`.
 
-Each section is backed by one CSV in `data/`:
+## Why the PDF is built on GitHub, not Netlify
 
-| Section              | File                     | Columns |
-|----------------------|--------------------------|---------|
-| Experience           | `appointments.csv`       | role, institution, period |
-| Education            | `education.csv`          | qualification, institution, year |
-| Competitive funding  | `funding.csv`            | project, funder, amount, period |
-| Projects             | `projects.csv`           | name, description, organisation, link |
-| Publications         | `publications.bib`       | Zotero BibTeX export (see below) |
-| Shiny apps           | `shiny_apps.csv`         | name, description, url, github |
-| Teaching             | `teaching.csv`           | course, role, institution, ects |
-| Doctoral supervision | `phd_theses.csv`         | title, candidate, institution, period, role |
-| Master's theses      | `masters_theses.csv`     | title, candidate, institution, year, note |
-| Invited talks        | `invited_talks.csv`      | year, title, venue, location, invited |
-| Prizes & awards      | `awards.csv`             | award |
-| Additional training  | `training.csv`           | item, institution, year |
-
-**Publications** are driven by `data/publications.bib` (your Zotero BibTeX
-export) via `bib2df`, sorted newest-first, with your own name bolded and a
-DOI/Link added automatically. To update the list, re-export from Zotero and
-overwrite the file — no code changes needed. The narrative sections (Profile,
-Selected research achievements, Academic service, Societal impact) are plain
-text in `index.qmd`.
-
-R packages used: `dplyr`, `readr`, `purrr`, `stringr`, `bib2df`
-(`install.packages(c("dplyr","readr","purrr","stringr","bib2df"))`).
-`readxl` is needed only for `tools/xlsx_to_csv.R`, not for rendering.
-
-## PDF on Netlify
-
-Netlify's Quarto plugin runs `quarto render`, and its build image has **no
-LaTeX** — so if the `pdf` format is part of the default render, the build fails
-with *"No TeX installation was detected"*. That's why `pdf` is isolated in
-`_quarto-pdf.yml`: the Netlify build only ever renders HTML and deploys cleanly.
-
-To keep the **Download PDF** button working on the live site:
-
-1. Render locally: `quarto render index.qmd --to pdf --profile pdf`
-   (needs a TeX engine locally — `quarto install tinytex` once, if you don't
-   have one).
-2. Commit the resulting `Robby-De-Pauw-CV.pdf`. Because `index.qmd` links to it,
-   Quarto copies it into `_site/` during the HTML build, so the button resolves.
-
-Alternatives, if you'd rather Netlify build the PDF automatically:
-
-- **Typst** — move the `pdf:` block from `_quarto-pdf.yml` into `_quarto.yml`
-  and change `pdf:` to `typst:`. Typst ships inside Quarto (no TeX), so Netlify
-  builds it. Note the profile photo's rounded corners use a small LaTeX (TikZ)
-  snippet; under Typst that block would need a Typst equivalent (or the photo
-  falls back to a plain square).
-- **Install TeX on Netlify** — replace the plugin with a build command such as
-  `quarto install tinytex --no-prompt && quarto render`, and put `pdf` back in
-  `_quarto.yml`. Simplest to reason about, but every build then installs TeX
-  (slower, occasionally flaky).
+Netlify's build image has no R and no LaTeX. The `pdf` format therefore lives
+in a Quarto profile (`_quarto-pdf.yml`) that only the workflow uses, and
+Netlify just renders the HTML from the committed `_freeze/` results and copies
+the committed PDF into the site for the **Download PDF** button.
