@@ -1,0 +1,102 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin:0;
+  background:#f6f6f6;
+}
+
+.page-shell{
+  max-width:1100px;
+  margin:auto;
+  padding:40px;
+  background:white;
+}
+
+.masthead{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:30px;
+  border-bottom:2px solid black;
+  padding-bottom:20px;
+}
+
+.cv-section{
+  margin-top:40px;
+}
+
+.pub-item{
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:15px;
+  margin-bottom:12px;
+}
+
+.pub-year{
+  font-weight:bold;
+  color:#666;
+}
+
+.thesis-item {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.thesis-item p {
+  margin: 0;
+}
+
+/* Left half of the masthead: photo (when present) sits beside the name block. */
+.masthead-left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.masthead-main { flex: 1 1 auto; min-width: 0; }
+
+/* Neutralise Quarto's code-cell wrapper around the photo chunk so that an
+   absent photo contributes no width, gap, or vertical space. */
+.masthead-left .cell { margin: 0; padding: 0; }
+.masthead-left .cell:empty { display: none; }
+
+/* The margin lives on the photo itself, so it only applies when a photo
+   is actually rendered (no photo -> no gap before the name). */
+.masthead-photo { flex: 0 0 auto; margin-right: 1.25rem; line-height: 0; }
+.profile-photo {
+  width: 120px; height: 120px;
+  object-fit: cover;
+  border-radius: 12px;              /* rounded square */
+  border: 1px solid rgba(0,0,0,.12);
+  display: block;
+}
+@media print { .profile-photo { width: 96px; height: 96px; } }
+
+/* Minor polish for classes used in index.qmd but missing from this stylesheet. */
+.masthead-side { font-size: 0.9rem; }
+.tagline { color: #555; font-size: 1.05rem; }
+.pdf-button {
+  display: inline-block; margin-top: 10px; padding: 6px 12px;
+  border: 1px solid #333; border-radius: 6px;
+  text-decoration: none; font-size: 0.9rem;
+}
+.pub-body p { margin: 2px 0; }
+.pub-authors { color: #444; font-size: 0.92rem; }
+.pub-venue  { color: #666; font-size: 0.9rem; }
+.award-list { margin: 0; padding-left: 1.2rem; }
+.muted { color: #999; }
+
+/* Table of contents: filled from the headings by toc.html. */
+.cv-toc {
+  margin-top: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+.cv-toc h2 { font-size: 1rem; margin: 0 0 6px; }
+.cv-toc ul { list-style: none; margin: 0; padding: 0; columns: 3 200px; }
+.cv-toc li { margin: 0 0 3px; break-inside: avoid; }
+.cv-toc li.toc-sub { padding-left: 1rem; font-size: 0.85rem; }
+.cv-toc a { text-decoration: none; color: #333; }
+.cv-toc a:hover { text-decoration: underline; }
+@media print { .cv-toc { display: none; } }
+
+/* Projects / Shiny apps are plain lists now. */
+.cv-list li, .page-shell ul li { margin-bottom: 6px; }

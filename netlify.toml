@@ -1,2 +1,5 @@
-[[plugins]]
-  package = "@quarto/netlify-plugin-quarto"
+# The site is built by GitHub Actions (.github/workflows/update-cv.yml), which
+# commits the finished site to _site/. Netlify only serves it: no R, no Quarto.
+[build]
+  publish = "_site"
+  command = "echo 'Site is pre-built by GitHub Actions'"

@@ -16,6 +16,3 @@ execute:
   echo: false
   warning: false
   message: false
-  # Netlify has no R, so it reuses the frozen results committed in _freeze/.
-  # tools/update-cv.ps1 renders index.qmd directly, which always re-executes.
-  freeze: auto

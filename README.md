@@ -19,8 +19,8 @@ cv-data.xlsx --(R: tools/xlsx_to_csv.R)--> data/*.csv --(Quarto)--> PDF + site
 - **on demand** via *Actions → Update CV → Run workflow*.
 
 When the CSVs or the rendered content changed, it commits the regenerated
-`data/*.csv`, `_freeze/` and `Robby-De-Pauw-CV.pdf` back to `main`, and Netlify
-deploys that commit. So updating the CV = edit the workbook, save, commit and
+`data/*.csv` and the finished site in `_site/` (including the PDF) back to
+`main`. Netlify only serves `_site/`; it builds nothing (see `netlify.toml`). So updating the CV = edit the workbook, save, commit and
 push it (e.g. with GitHub Desktop). Pull before your next edit to get the bot's
 commit.
 
@@ -32,13 +32,12 @@ re-enable it in the Actions tab if that happens.
 ```bash
 Rscript tools/xlsx_to_csv.R                      # Excel -> data/*.csv
 quarto render index.qmd --to pdf --profile pdf   # PDF first: this resets _site/
-cp _site/Robby-De-Pauw-CV.pdf .
+mv _site/Robby-De-Pauw-CV.pdf .
 quarto render index.qmd                          # HTML -> _site/
+mv Robby-De-Pauw-CV.pdf _site/
 ```
 
-Render `index.qmd` explicitly (not the whole project) so the R code re-runs;
-project renders reuse the frozen results in `_freeze/`, which is what Netlify
-does (it has no R).
+No need to commit a local build: the workflow rebuilds `_site/` on push.
 
 ## Sheets and columns
 
@@ -61,9 +60,8 @@ service, Societal impact) are plain text in `index.qmd`.
 
 R packages: `readxl`, `dplyr`, `readr`, `purrr`, `stringr`, `bib2df`.
 
-## Why the PDF is built on GitHub, not Netlify
+## Why GitHub builds and Netlify only serves
 
-Netlify's build image has no R and no LaTeX. The `pdf` format therefore lives
-in a Quarto profile (`_quarto-pdf.yml`) that only the workflow uses, and
-Netlify just renders the HTML from the committed `_freeze/` results and copies
-the committed PDF into the site for the **Download PDF** button.
+Netlify's build image has no R and no LaTeX, so it cannot render the CV. The
+`pdf` format lives in a Quarto profile (`_quarto-pdf.yml`) used only by the
+workflow, and Netlify publishes the committed `_site/` as is.

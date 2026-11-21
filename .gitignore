@@ -1,6 +1,5 @@
 /.quarto/
 **/*.quarto_ipynb
-/_site/
 index.log
 index.tex
 *.log
